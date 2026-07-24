@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "Balam — Estudio de software",
+    "description": "Balam construye productos digitales. Terminal, no landing page."
+  },
+  "nav": {
+    "home": "Home",
+    "apps": "Apps",
+    "chat": "Chat",
+    "cta": "Habla con Balam"
+  },
+  "hero": {
+    "eyebrow": "estudio de software // cozumel, mx",
+    "line1": "Construimos los productos",
+    "line2": "que ya conoces.",
+    "sub": "Balam es el estudio detrás de TourBrain y otros productos en producción. No hacemos sitios de agencia — hacemos software que corre.",
+    "ctaPrimary": "Habla con Balam",
+    "ctaSecondary": "Ver apps",
+    "promptLabel": "balam@terminal"
+  },
+  "terminal": {
+    "whoami": "whoami",
+    "whoamiOut": "estudio independiente de software — Cozumel, México",
+    "stack": "cat stack.txt",
+    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · IA aplicada",
+    "status": "cat status.txt",
+    "statusOut": "disponible para conversar sobre tu próximo producto"
+  },
+  "principles": {
+    "title": "cómo trabajamos",
+    "items": [
+      { "title": "producto, no proyecto", "body": "medimos éxito en uso real, no en entregables." },
+      { "title": "IA aplicada, no adorno", "body": "la usamos donde mueve una métrica, no como feature de marketing." },
+      { "title": "shippeamos rápido", "body": "producción real en semanas, no trimestres." }
+    ]
+  },
+  "apps": {
+    "eyebrow": "apps",
+    "title": "lo que hemos construido",
+    "sub": "Productos en producción, no mockups.",
+    "viewAll": "ver todas",
+    "statusLive": "EN PRODUCCIÓN",
+    "statusProgress": "EN DESARROLLO",
+    "items": {
+      "tourbrain": {
+        "name": "TourBrain",
+        "tagline": "Plataforma de reservas y tours para proveedores locales en Cozumel.",
+        "detail": "Marketplace + chat con IA + panel de proveedores. Next.js, Supabase, Stripe."
+      },
+      "gnga": {
+        "name": "GNGA.Web3",
+        "tagline": "Protocolo Web3 con bot conversacional propio (Nibbles).",
+        "detail": "Orquestación vía n8n + IA self-hosted, sin dependencias de terceros."
+      }
+    },
+    "footerNote": "¿Tu producto podría ser el siguiente? Habla con nosotros."
+  },
+  "chat": {
+    "eyebrow": "chat",
+    "title": "habla con balam",
+    "sub": "Este es el punto de contacto real. Cuéntanos qué estás construyendo.",
+    "inputPlaceholder": "escribe un mensaje...",
+    "send": "enviar",
+    "systemGreeting": "Hola. Soy la terminal de contacto de Balam. Cuéntame en una línea qué estás construyendo o qué necesitas — un humano del estudio lee esto.",
+    "disclaimer": "Las conversaciones se revisan por el equipo de Balam. Tiempo de respuesta típico: menos de 24h.",
+    "connecting": "procesando...",
+    "stubReply": "Recibido. Este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. Mientras tanto, escríbenos directo:"
+  },
+  "footer": {
+    "tagline": "Balam — estudio de software.",
+    "contact": "contacto",
+    "phone": "+52 987 112 3961",
+    "email": "balamcozu@proton.me",
+    "rights": "todos los derechos reservados.",
+    "builtWith": "construido con Next.js, en la terminal."
+  },
+  "notFound": {
+    "code": "404",
+    "message": "ruta no encontrada",
+    "back": "volver a home"
+  }
+}
