@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 // Stub endpoint for the "Talk with Balam" chat.
 // Swap the body of this handler for a real call to the Dify/n8n
-// endpoint once DIFY_CHAT_API_KEY is available — the ChatPanel
+// endpoint once DIFY_CHAT_API_KEY is available — the ChatWidget
 // component already speaks this request/response shape.
 export async function POST(request: Request) {
   const { message } = (await request.json()) as { message?: string };

@@ -64,7 +64,10 @@
     "systemGreeting": "Hola. Soy la terminal de contacto de Balam. Cuéntame en una línea qué estás construyendo o qué necesitas — un humano del estudio lee esto.",
     "disclaimer": "Las conversaciones se revisan por el equipo de Balam. Tiempo de respuesta típico: menos de 24h.",
     "connecting": "procesando...",
-    "stubReply": "Recibido. Este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. Mientras tanto, escríbenos directo:"
+    "stubReply": "Recibido. Este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. Mientras tanto, escríbenos directo:",
+    "widgetSubtitle": "asistente ia",
+    "minimize": "minimizar",
+    "reset": "reiniciar conversación"
   },
   "footer": {
     "tagline": "Balam — estudio de software.",

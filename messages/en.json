@@ -64,7 +64,10 @@
     "systemGreeting": "Hey. I'm Balam's contact terminal. Tell me in one line what you're building or what you need — someone from the studio reads this.",
     "disclaimer": "Conversations are reviewed by the Balam team. Typical response time: under 24h.",
     "connecting": "processing...",
-    "stubReply": "Got it. This channel is still running in demo mode — soon it'll connect to our live assistant. In the meantime, reach us directly:"
+    "stubReply": "Got it. This channel is still running in demo mode — soon it'll connect to our live assistant. In the meantime, reach us directly:",
+    "widgetSubtitle": "ai assistant",
+    "minimize": "minimize",
+    "reset": "reset conversation"
   },
   "footer": {
     "tagline": "Balam — software studio.",

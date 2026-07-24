@@ -15,6 +15,11 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { OPEN_CHAT_EVENT } from "@/components/chat-widget";
+
+function openChat() {
+  window.dispatchEvent(new CustomEvent(OPEN_CHAT_EVENT));
+}
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -24,7 +29,6 @@ export function Navbar() {
   const links = [
     { href: "/", label: t("home") },
     { href: "/apps", label: t("apps") },
-    { href: "/chat", label: t("chat") },
   ] as const;
 
   return (
@@ -51,15 +55,16 @@ export function Navbar() {
 
         <div className="hidden items-center gap-4 md:flex">
           <LanguageSwitcher />
-          <Link
-            href="/chat"
+          <button
+            type="button"
+            onClick={openChat}
             className={buttonVariants({
               className:
                 "bg-terminal-green font-mono text-background hover:bg-terminal-green/90",
             })}
           >
             {t("cta")}
-          </Link>
+          </button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -100,16 +105,19 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  href="/chat"
-                  onClick={() => setOpen(false)}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    openChat();
+                  }}
                   className={buttonVariants({
                     className:
                       "mt-4 bg-terminal-green text-background hover:bg-terminal-green/90",
                   })}
                 >
                   {t("cta")}
-                </Link>
+                </button>
               </nav>
             </SheetContent>
           </Sheet>

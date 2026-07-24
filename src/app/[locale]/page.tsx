@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
+import { OpenChatButton } from "@/components/open-chat-button";
 import { GridBackground } from "@/components/grid-background";
 import { Particles } from "@/components/particles";
 import { TerminalHeroPanel } from "@/components/terminal-hero-panel";
@@ -47,16 +48,12 @@ export default async function HomePage({
               {hero("sub")}
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link
-                href="/chat"
-                className={buttonVariants({
-                  size: "lg",
-                  className:
-                    "bg-terminal-green font-mono text-background hover:bg-terminal-green/90",
-                })}
+              <OpenChatButton
+                size="lg"
+                className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
               >
                 {hero("ctaPrimary")}
-              </Link>
+              </OpenChatButton>
               <Link
                 href="/apps"
                 className={buttonVariants({

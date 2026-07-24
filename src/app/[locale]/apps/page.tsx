@@ -1,8 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { AppCard } from "@/components/app-card";
 import { GridBackground } from "@/components/grid-background";
-import { buttonVariants } from "@/components/ui/button";
+import { OpenChatButton } from "@/components/open-chat-button";
 import { apps } from "@/lib/apps-data";
 
 export default async function AppsPage({
@@ -43,15 +42,9 @@ export default async function AppsPage({
             <p className="font-mono text-sm text-muted-foreground">
               {t("footerNote")}
             </p>
-            <Link
-              href="/chat"
-              className={buttonVariants({
-                className:
-                  "bg-terminal-green font-mono text-background hover:bg-terminal-green/90",
-              })}
-            >
+            <OpenChatButton className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90">
               {hero("ctaPrimary")}
-            </Link>
+            </OpenChatButton>
           </div>
         </div>
       </section>

@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
+import { ChatWidget } from "@/components/chat-widget";
 import "../globals.css";
 
 const inter = Inter({
@@ -70,6 +71,7 @@ export default async function LocaleLayout({
           <Navbar />
           <main className="flex-1 flex flex-col">{children}</main>
           <SiteFooter />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>
