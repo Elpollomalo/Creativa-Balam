@@ -8,7 +8,7 @@ export function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <span className="text-terminal-green">&gt;</span> balam
+      <span className="text-terminal-green">&gt;</span> creativa_balam
       <span className="terminal-cursor text-terminal-green">_</span>
     </span>
   );
