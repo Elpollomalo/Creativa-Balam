@@ -269,7 +269,7 @@ export function ChatWidget() {
               )}
 
               {bootFinished && (
-                <p className="text-xs text-muted-foreground">
+                <p className="pl-4 text-xs text-muted-foreground">
                   {t("disclaimer")}
                 </p>
               )}
@@ -339,15 +339,24 @@ export function ChatWidget() {
           )}
         >
           <span className="font-mono text-terminal-green">$</span>
-          <input
-            ref={inputRef}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onFocus={() => setIsExpanded(true)}
-            placeholder={t("inputPlaceholder")}
-            disabled={pending || (isExpanded && !bootFinished)}
-            className="flex-1 bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none disabled:opacity-50"
-          />
+          <div className="relative flex-1">
+            <input
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onFocus={() => setIsExpanded(true)}
+              disabled={pending || (isExpanded && !bootFinished)}
+              className="w-full bg-transparent font-mono text-sm text-foreground caret-terminal-green focus:outline-none disabled:opacity-50"
+            />
+            {!input && (
+              <span
+                aria-hidden
+                className="terminal-cursor pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-terminal-green"
+              >
+                ▍
+              </span>
+            )}
+          </div>
           <Button
             type="submit"
             size="sm"
