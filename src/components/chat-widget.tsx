@@ -50,7 +50,6 @@ export function ChatWidget() {
     { kind: "output", text: term("stackOut") },
     { kind: "cmd", text: "cat status.txt" },
     { kind: "output", text: term("statusOut") },
-    { kind: "message", text: t("systemGreeting") },
   ];
 
   const [revealedCount, setRevealedCount] = useState(0);

@@ -6,7 +6,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border pb-16">
+    <footer className="pb-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2">
           <Logo />
@@ -31,13 +31,11 @@ export function SiteFooter() {
           </a>
         </div>
       </div>
-      <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 font-mono text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <span>
-            © {year} balam — {t("rights")}
-          </span>
-          <span>{t("builtWith")}</span>
-        </div>
+      <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 font-mono text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <span>
+          © {year} balam — {t("rights")}
+        </span>
+        <span>{t("builtWith")}</span>
       </div>
     </footer>
   );

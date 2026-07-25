@@ -3,7 +3,6 @@ import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { OpenChatButton } from "@/components/open-chat-button";
 import { GridBackground } from "@/components/grid-background";
-import { Particles } from "@/components/particles";
 import { AppCard } from "@/components/app-card";
 import { apps } from "@/lib/apps-data";
 import { ArrowRight } from "lucide-react";
@@ -28,9 +27,8 @@ export default async function HomePage({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden">
         <GridBackground />
-        <Particles count={36} />
         <div className="relative mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:py-32">
           <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
             {hero("eyebrow")}
@@ -68,14 +66,14 @@ export default async function HomePage({
       </section>
 
       {/* Principles */}
-      <section className="border-b border-border">
+      <section>
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h2 className="mb-10 font-mono text-sm tracking-widest text-muted-foreground">
             {`// ${principles("title")}`}
           </h2>
-          <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-3 sm:gap-8">
             {principleItems.map((item) => (
-              <div key={item.title} className="bg-background p-6 sm:p-8">
+              <div key={item.title}>
                 <h3 className="mb-2 font-mono text-sm text-terminal-green">
                   {item.title}
                 </h3>

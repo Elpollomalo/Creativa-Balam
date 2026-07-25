@@ -17,7 +17,7 @@ export default async function AppsPage({
 
   return (
     <div className="flex flex-col">
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden">
         <GridBackground />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <p className="mb-3 font-mono text-xs tracking-widest text-terminal-green/80">

@@ -24,7 +24,7 @@
     "stack": "cat stack.txt",
     "stackOut": "Next.js · TypeScript · Tailwind · Supabase · IA aplicada",
     "status": "cat status.txt",
-    "statusOut": "disponible para conversar sobre tu próximo producto"
+    "statusOut": "disponible para conversar sobre tu próximo producto y proyecto, cuéntanos qué tienes en mente?"
   },
   "principles": {
     "title": "cómo trabajamos",
@@ -61,7 +61,6 @@
     "sub": "Este es el punto de contacto real. Cuéntanos qué estás construyendo.",
     "inputPlaceholder": "escribe un mensaje...",
     "send": "enviar",
-    "systemGreeting": "Hola. Soy la terminal de contacto de Balam. Cuéntame en una línea qué estás construyendo o qué necesitas — un humano del estudio lee esto.",
     "disclaimer": "Las conversaciones se revisan por el equipo de Balam. Tiempo de respuesta típico: menos de 24h.",
     "connecting": "procesando...",
     "stubReply": "Recibido. Este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. Mientras tanto, escríbenos directo:",
