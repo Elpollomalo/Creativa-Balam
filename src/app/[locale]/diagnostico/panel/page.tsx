@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { PanelEditor } from "@/components/diagnostico/panel-editor";
+
+export const metadata: Metadata = {
+  title: "Mi diagnóstico — Creativa Balam",
+};
 
 export default async function DiagnosticoPanelPage({
   params,
