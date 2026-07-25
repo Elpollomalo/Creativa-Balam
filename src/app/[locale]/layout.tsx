@@ -5,9 +5,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Navbar } from "@/components/navbar";
-import { SiteFooter } from "@/components/site-footer";
-import { ChatWidget } from "@/components/chat-widget";
+import { SiteChrome } from "@/components/site-chrome";
 import "../globals.css";
 
 const inter = Inter({
@@ -68,10 +66,7 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="flex-1 flex flex-col">{children}</main>
-          <SiteFooter />
-          <ChatWidget />
+          <SiteChrome>{children}</SiteChrome>
         </NextIntlClientProvider>
       </body>
     </html>
