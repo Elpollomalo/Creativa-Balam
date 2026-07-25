@@ -4,7 +4,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { OpenChatButton } from "@/components/open-chat-button";
 import { GridBackground } from "@/components/grid-background";
 import { Particles } from "@/components/particles";
-import { TerminalHeroPanel } from "@/components/terminal-hero-panel";
 import { AppCard } from "@/components/app-card";
 import { apps } from "@/lib/apps-data";
 import { ArrowRight } from "lucide-react";
@@ -32,44 +31,38 @@ export default async function HomePage({
       <section className="relative overflow-hidden border-b border-border">
         <GridBackground />
         <Particles count={36} />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:items-center lg:py-32">
-          <div>
-            <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
-              {hero("eyebrow")}
-            </p>
-            <h1 className="text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              {hero("line1")}
-              <br />
-              <span className="text-glow text-terminal-green">
-                {hero("line2")}
-              </span>
-            </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-              {hero("sub")}
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <OpenChatButton
-                size="lg"
-                className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
-              >
-                {hero("ctaPrimary")}
-              </OpenChatButton>
-              <Link
-                href="/apps"
-                className={buttonVariants({
-                  size: "lg",
-                  variant: "outline",
-                  className:
-                    "border-border font-mono text-foreground hover:border-terminal-cyan/50 hover:text-terminal-cyan",
-                })}
-              >
-                {hero("ctaSecondary")}
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex justify-center lg:justify-end">
-            <TerminalHeroPanel />
+        <div className="relative mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:py-32">
+          <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
+            {hero("eyebrow")}
+          </p>
+          <h1 className="text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            {hero("line1")}
+            <br />
+            <span className="text-glow text-terminal-green">
+              {hero("line2")}
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+            {hero("sub")}
+          </p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <OpenChatButton
+              size="lg"
+              className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
+            >
+              {hero("ctaPrimary")}
+            </OpenChatButton>
+            <Link
+              href="/apps"
+              className={buttonVariants({
+                size: "lg",
+                variant: "outline",
+                className:
+                  "border-border font-mono text-foreground hover:border-terminal-cyan/50 hover:text-terminal-cyan",
+              })}
+            >
+              {hero("ctaSecondary")}
+            </Link>
           </div>
         </div>
       </section>

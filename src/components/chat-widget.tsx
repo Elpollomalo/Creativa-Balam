@@ -12,33 +12,109 @@ export const OPEN_CHAT_EVENT = "balam:open-chat";
 
 type Message = {
   id: string;
-  role: "system" | "user" | "assistant";
+  role: "user" | "assistant";
   text: string;
 };
 
-function makeGreeting(text: string): Message {
-  return { id: "greeting", role: "system", text };
-}
+type BootSegment =
+  | { kind: "cmd"; text: string }
+  | { kind: "output"; text: string }
+  | { kind: "message"; text: string };
+
+const CMD_MS_PER_CHAR = 14;
+const TEXT_MS_PER_CHAR = 8;
+const SEGMENT_PAUSE_MS = 350;
 
 export function ChatWidget() {
   const t = useTranslations("chat");
+  const term = useTranslations("terminal");
   const pathname = usePathname();
   const [isExpanded, setIsExpanded] = useState(pathname === "/");
-  const [messages, setMessages] = useState<Message[]>([
-    makeGreeting(t("systemGreeting")),
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [pending, setPending] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const bootStarted = useRef(false);
+
+  const bootSegments: BootSegment[] = [
+    { kind: "cmd", text: term("whoami") },
+    { kind: "output", text: term("whoamiOut") },
+    { kind: "cmd", text: "cat stack.txt" },
+    { kind: "output", text: term("stackOut") },
+    { kind: "cmd", text: "cat status.txt" },
+    { kind: "output", text: term("statusOut") },
+    { kind: "message", text: t("systemGreeting") },
+  ];
+
+  const [revealedCount, setRevealedCount] = useState(0);
+  const [partialText, setPartialText] = useState("");
+  const [bootFinished, setBootFinished] = useState(false);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [messages, pending, isExpanded]);
+  }, [messages, pending, revealedCount, partialText]);
+
+  useEffect(() => {
+    if (!isExpanded || bootStarted.current) return;
+    bootStarted.current = true;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reduceMotion) {
+      const id = setTimeout(() => {
+        setRevealedCount(bootSegments.length);
+        setBootFinished(true);
+      }, 0);
+      return () => clearTimeout(id);
+    }
+
+    let cancelled = false;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+
+    async function typeSegment(index: number) {
+      if (cancelled) return;
+      if (index >= bootSegments.length) {
+        setBootFinished(true);
+        return;
+      }
+      const segment = bootSegments[index];
+      const speed = segment.kind === "cmd" ? CMD_MS_PER_CHAR : TEXT_MS_PER_CHAR;
+
+      for (let i = 1; i <= segment.text.length; i++) {
+        await new Promise<void>((resolve) => {
+          const id = setTimeout(resolve, speed);
+          timeouts.push(id);
+        });
+        if (cancelled) return;
+        setPartialText(segment.text.slice(0, i));
+      }
+
+      if (cancelled) return;
+      setRevealedCount(index + 1);
+      setPartialText("");
+
+      await new Promise<void>((resolve) => {
+        const id = setTimeout(resolve, SEGMENT_PAUSE_MS);
+        timeouts.push(id);
+      });
+      typeSegment(index + 1);
+    }
+
+    typeSegment(0);
+
+    return () => {
+      cancelled = true;
+      timeouts.forEach(clearTimeout);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isExpanded]);
 
   useEffect(() => {
     function onOpen() {
@@ -66,7 +142,7 @@ export function ChatWidget() {
       setIsExpanded(true);
     }
     const trimmed = input.trim();
-    if (!trimmed || pending) return;
+    if (!trimmed || pending || !bootFinished) return;
 
     const userMessage: Message = {
       id: crypto.randomUUID(),
@@ -96,8 +172,10 @@ export function ChatWidget() {
 
   function handleReset(e: React.MouseEvent) {
     e.stopPropagation();
-    setMessages([makeGreeting(t("systemGreeting"))]);
+    setMessages([]);
   }
+
+  const inProgress = revealedCount < bootSegments.length ? bootSegments[revealedCount] : null;
 
   return (
     <div
@@ -116,7 +194,7 @@ export function ChatWidget() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]/70" />
               <span className="ml-2 font-mono text-xs text-muted-foreground">
-                balam@chat
+                balam@terminal
               </span>
               <div className="ml-auto flex items-center gap-1">
                 <button
@@ -140,8 +218,25 @@ export function ChatWidget() {
 
             <div
               ref={scrollRef}
-              className="flex flex-1 flex-col gap-4 overflow-y-auto scrollbar-thin p-4 font-mono text-sm leading-relaxed"
+              className="flex flex-1 flex-col gap-3 overflow-y-auto scrollbar-thin p-4 font-mono text-sm leading-relaxed"
             >
+              {bootSegments.slice(0, revealedCount).map((seg, i) => (
+                <BootLine key={i} segment={seg} />
+              ))}
+
+              {inProgress && (
+                <BootLine
+                  segment={{ ...inProgress, text: partialText } as BootSegment}
+                  cursor
+                />
+              )}
+
+              {bootFinished && (
+                <p className="text-xs text-muted-foreground">
+                  {t("disclaimer")}
+                </p>
+              )}
+
               <AnimatePresence initial={false}>
                 {messages.map((m) => (
                   <motion.div
@@ -157,36 +252,25 @@ export function ChatWidget() {
                       </p>
                     ) : (
                       <>
-                        {m.role === "assistant" && (
-                          <p className="text-terminal-green">$ balam</p>
-                        )}
-                        <p
-                          className={cn(
-                            "whitespace-pre-wrap text-foreground/90",
-                            m.role === "assistant" && "pl-4",
-                          )}
-                        >
+                        <p className="text-terminal-green">$ balam</p>
+                        <p className="whitespace-pre-wrap pl-4 text-foreground/90">
                           {m.text}
                         </p>
+                        <p className="mt-1 flex flex-wrap gap-x-4 gap-y-1 pl-4 text-xs text-terminal-green">
+                          <a
+                            href="mailto:balamcozu@proton.me"
+                            className="hover:underline"
+                          >
+                            balamcozu@proton.me
+                          </a>
+                          <a
+                            href="tel:+529871123961"
+                            className="hover:underline"
+                          >
+                            +52 987 112 3961
+                          </a>
+                        </p>
                       </>
-                    )}
-                    {m.id === "greeting" && (
-                      <p className="mt-2 text-xs text-muted-foreground">
-                        {t("disclaimer")}
-                      </p>
-                    )}
-                    {m.role === "assistant" && m.id !== "greeting" && (
-                      <p className="mt-1 flex flex-wrap gap-x-4 gap-y-1 pl-4 text-xs text-terminal-green">
-                        <a
-                          href="mailto:balamcozu@proton.me"
-                          className="hover:underline"
-                        >
-                          balamcozu@proton.me
-                        </a>
-                        <a href="tel:+529871123961" className="hover:underline">
-                          +52 987 112 3961
-                        </a>
-                      </p>
                     )}
                   </motion.div>
                 ))}
@@ -222,13 +306,13 @@ export function ChatWidget() {
             onChange={(e) => setInput(e.target.value)}
             onFocus={() => setIsExpanded(true)}
             placeholder={t("inputPlaceholder")}
-            disabled={pending}
+            disabled={pending || (isExpanded && !bootFinished)}
             className="flex-1 bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none disabled:opacity-50"
           />
           <Button
             type="submit"
             size="sm"
-            disabled={pending || !input.trim()}
+            disabled={pending || !input.trim() || (isExpanded && !bootFinished)}
             className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
           >
             <Send className="h-3.5 w-3.5" />
@@ -237,5 +321,39 @@ export function ChatWidget() {
         </form>
       </div>
     </div>
+  );
+}
+
+function BootLine({
+  segment,
+  cursor,
+}: {
+  segment: BootSegment;
+  cursor?: boolean;
+}) {
+  if (segment.kind === "cmd") {
+    return (
+      <p>
+        <span className="text-terminal-green">$</span>{" "}
+        <span className="text-foreground">{segment.text}</span>
+        {cursor && (
+          <span className="terminal-cursor text-terminal-green">▍</span>
+        )}
+      </p>
+    );
+  }
+
+  return (
+    <p
+      className={cn(
+        "whitespace-pre-wrap text-muted-foreground",
+        segment.kind === "output" && "pl-4",
+      )}
+    >
+      {segment.text}
+      {cursor && (
+        <span className="terminal-cursor text-terminal-green">▍</span>
+      )}
+    </p>
   );
 }
