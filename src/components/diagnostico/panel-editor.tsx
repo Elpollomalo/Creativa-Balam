@@ -29,7 +29,7 @@ type Answers = Record<string, unknown>;
 type DiagnosticoRow = {
   respuestas: Answers;
   idioma: string;
-  telegram_contacto: string | null;
+  telefono_contacto: string | null;
   quiere_revision: boolean;
   updated_at: string;
 } | null;
@@ -69,7 +69,7 @@ export function PanelEditor({
       .update({
         respuestas: answers,
         idioma: lang,
-        telegram_contacto: (answers.telegramContacto as string) || null,
+        telefono_contacto: (answers.telefonoContacto as string) || null,
         quiere_revision: answers.quiereRevision === "yes",
       })
       .eq(

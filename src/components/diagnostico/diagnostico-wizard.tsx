@@ -130,7 +130,7 @@ export function DiagnosticoWizard({
           correo: userEmail,
           idioma: lang,
           respuestas,
-          telegram_contacto: (answers.telegramContacto as string) || null,
+          telefono_contacto: (answers.telefonoContacto as string) || null,
           quiere_revision: answers.quiereRevision === "yes",
         },
         { onConflict: "user_id" },

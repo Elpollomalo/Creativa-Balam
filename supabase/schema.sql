@@ -9,7 +9,7 @@ create table if not exists public.diagnosticos (
   correo text not null,
   idioma text not null default 'es',
   respuestas jsonb not null default '{}'::jsonb,
-  telegram_contacto text,
+  telefono_contacto text,
   quiere_revision boolean not null default false,
   n8n_enviado boolean not null default false,
   created_at timestamptz not null default now(),

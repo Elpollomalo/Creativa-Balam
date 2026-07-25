@@ -89,25 +89,25 @@ export const UI = {
       "Un análisis basado en la información que compartas.",
       "Recomendaciones claras y accionables.",
       "Estrategias adaptadas a tus objetivos y presupuesto.",
-      "Tu plan de marketing y, después, el contenido de tus redes día a día, directo en Telegram.",
+      "Tu plan de marketing por correo, y siempre disponible para editar en tu panel.",
     ],
     en: [
       "An analysis based on the information you share.",
       "Clear, actionable recommendations.",
       "Strategies tailored to your goals and budget.",
-      "Your marketing plan and, later, your day-to-day social content, delivered directly on Telegram.",
+      "Your marketing plan by email, always available to review in your panel.",
     ],
     zh: [
       "基于您提供信息的分析。",
       "清晰、可执行的建议。",
       "根据您的目标和预算量身定制的策略。",
-      "您的营销计划，以及之后每天的社交媒体内容，直接通过Telegram发送。",
+      "您的营销计划将通过邮件发送，并始终可在您的面板中查看。",
     ],
     hi: [
       "आपके द्वारा साझा की गई जानकारी पर आधारित एक विश्लेषण।",
       "स्पष्ट, क्रियान्वित करने योग्य सुझाव।",
       "आपके लक्ष्यों और बजट के अनुरूप रणनीतियाँ।",
-      "आपकी मार्केटिंग योजना, और बाद में, आपकी रोज़ाना की सोशल मीडिया सामग्री, सीधे Telegram पर।",
+      "आपकी मार्केटिंग योजना ईमेल द्वारा, और हमेशा आपके पैनल में देखने के लिए उपलब्ध।",
     ],
   } as Record<Lang, string[]>,
   safeTitle: { es: "Tu información está segura.", en: "Your information is safe.", zh: "您的信息是安全的。", hi: "आपकी जानकारी सुरक्षित है।" } as LangText,
@@ -160,10 +160,10 @@ export const UI = {
     hi: "कृपया थोड़ा और पूरा उत्तर दें।",
   } as LangText,
   invalidPhone: {
-    es: "Ingresa un número de Telegram válido (con lada/código de país).",
-    en: "Enter a valid Telegram number (with country code).",
-    zh: "请输入有效的Telegram号码（含国家代码）。",
-    hi: "एक मान्य Telegram नंबर दर्ज करें (देश कोड सहित)।",
+    es: "Ingresa un número de teléfono válido (con lada/código de país).",
+    en: "Enter a valid phone number (with country code).",
+    zh: "请输入有效的电话号码（含国家代码）。",
+    hi: "एक मान्य फ़ोन नंबर दर्ज करें (देश कोड सहित)।",
   } as LangText,
   invalidUrl: {
     es: "Ingresa una dirección web válida (ej. midominio.com).",
@@ -187,16 +187,16 @@ export const UI = {
     hi: "हमें आपकी जानकारी प्राप्त हो गई है और हम आपकी व्यक्तिगत मार्केटिंग योजना तैयार करना शुरू करेंगे।",
   } as LangText,
   doneP2: {
-    es: "Lo recibirás por Telegram, en el número que nos proporcionaste.",
-    en: "You'll receive it on Telegram, at the number you provided.",
-    zh: "您将通过Telegram在您提供的号码上收到它。",
-    hi: "आपको यह Telegram पर, आपके द्वारा दिए गए नंबर पर प्राप्त होगा।",
+    es: "Te lo enviaremos por correo, y siempre podrás verlo y editarlo en tu panel.",
+    en: "We'll send it to your email, and you can always view and edit it in your panel.",
+    zh: "我们会将其发送到您的邮箱，您也可以随时在面板中查看和编辑。",
+    hi: "हम इसे आपके ईमेल पर भेजेंगे, और आप इसे अपने पैनल में कभी भी देख और संपादित कर सकते हैं।",
   } as LangText,
   doneP3: {
-    es: "Como solicitaste una revisión con uno de nuestros especialistas, nos pondremos en contacto contigo por Telegram en los próximos días.",
-    en: "Since you requested a review with one of our specialists, we'll reach out to you on Telegram in the coming days.",
-    zh: "由于您申请了与我们专家的复核，我们将在未来几天通过Telegram与您联系。",
-    hi: "चूंकि आपने हमारे किसी विशेषज्ञ के साथ समीक्षा का अनुरोध किया है, हम अगले कुछ दिनों में Telegram पर आपसे संपर्क करेंगे।",
+    es: "Como pediste que te contactemos, nos pondremos en contacto contigo en los próximos días.",
+    en: "Since you asked us to reach out, we'll get in touch with you in the coming days.",
+    zh: "由于您要求我们联系您，我们将在未来几天与您联系。",
+    hi: "चूंकि आपने हमसे संपर्क करने का अनुरोध किया है, हम अगले कुछ दिनों में आपसे संपर्क करेंगे।",
   } as LangText,
   doneP4: { es: "¡Gracias por confiar en nosotros!", en: "Thank you for trusting us!", zh: "感谢您的信任！", hi: "हम पर भरोसा करने के लिए धन्यवाद!" } as LangText,
 };
@@ -208,7 +208,7 @@ export const BLOCKS: Record<string, LangText> = {
   b4: { es: "BLOQUE 4 · Tu negocio hoy", en: "SECTION 4 · Your business today", zh: "第四部分 · 您现在的业务", hi: "खंड 4 · आपका व्यवसाय आज" },
   b5: { es: "BLOQUE 5 · Construyamos un plan realista", en: "SECTION 5 · Let's build a realistic plan", zh: "第五部分 · 制定一个切实可行的计划", hi: "खंड 5 · एक यथार्थवादी योजना बनाएं" },
   b6: { es: "BLOQUE 6 · Una última pregunta", en: "SECTION 6 · One last question", zh: "第六部分 · 最后一个问题", hi: "खंड 6 · अंतिम प्रश्न" },
-  b7: { es: "BLOQUE 7 · Recibe tu contenido", en: "SECTION 7 · Get your content", zh: "第七部分 · 获取您的内容", hi: "खंड 7 · अपनी सामग्री प्राप्त करें" },
+  b7: { es: "BLOQUE 7 · ¿Te contactamos?", en: "SECTION 7 · Should we reach out?", zh: "第七部分 · 需要我们联系您吗？", hi: "खंड 7 · क्या हम संपर्क करें?" },
 };
 
 export const Q: Record<string, { question: LangText; subtitle?: LangText; placeholder?: LangText }> = {
@@ -292,17 +292,22 @@ export const Q: Record<string, { question: LangText; subtitle?: LangText; placeh
       hi: "व्हाइटपेपर, ब्रोशर, कैटलॉग आदि। वैकल्पिक — अधिकतम 10MB (PDF या Word)।",
     },
   },
-  telegramContacto: {
-    question: { es: "¿Cuál es tu número de Telegram?", en: "What's your Telegram number?", zh: "您的Telegram号码是多少？", hi: "आपका Telegram नंबर क्या है?" },
+  quiereRevision: {
+    question: { es: "¿Te gustaría que nos pongamos en contacto contigo?", en: "Would you like us to reach out to you?", zh: "您希望我们联系您吗？", hi: "क्या आप चाहेंगे कि हम आपसे संपर्क करें?" },
+  },
+  metodoContacto: {
+    question: { es: "¿Cuál es tu método de contacto preferido?", en: "What's your preferred contact method?", zh: "您首选的联系方式是什么？", hi: "आपका पसंदीदा संपर्क तरीका क्या है?" },
+  },
+  telefonoContacto: {
+    question: { es: "¿Cuál es tu número de teléfono?", en: "What's your phone number?", zh: "您的电话号码是多少？", hi: "आपका फ़ोन नंबर क्या है?" },
     subtitle: {
-      es: "Ahí te enviaremos tu plan de marketing y, después, el contenido de tus redes listo para revisar día a día.",
-      en: "We'll send your marketing plan there, and later your day-to-day social content, ready for you to review.",
-      zh: "我们将把您的营销计划发送到那里，之后还会发送准备好供您审阅的每日社交内容。",
-      hi: "हम आपकी मार्केटिंग योजना वहाँ भेजेंगे, और बाद में आपकी रोज़ाना की सोशल सामग्री, समीक्षा के लिए तैयार।",
+      es: "Te contactaremos ahí.",
+      en: "We'll reach out to you there.",
+      zh: "我们会通过这个号码联系您。",
+      hi: "हम आपसे वहाँ संपर्क करेंगे।",
     },
     placeholder: { es: "Ej. +52 999 123 4567", en: "E.g. +1 555 123 4567", zh: "例如 +86 138 0000 0000", hi: "जैसे +91 98765 43210" },
   },
-  quiereRevision: { question: { es: "¿Te gustaría que uno de nuestros especialistas revise contigo el diagnóstico, sin costo?", en: "Would you like one of our specialists to review your diagnosis with you, at no cost?", zh: "您是否希望我们的专家免费与您一起复核诊断结果？", hi: "क्या आप चाहेंगे कि हमारा कोई विशेषज्ञ बिना किसी शुल्क के आपके निदान की समीक्षा करे?" } },
 };
 
 const opt = (value: string, es: string, en: string, zh: string, hi: string): StepOption => ({
@@ -476,14 +481,26 @@ export const ALL_STEPS: StepConfig[] = [
   { id: "perspectivaConsultor", blockKey: "b6", type: "textarea", required: true, minLength: 30 },
   { id: "documentoAdicional", type: "file", required: false, maxSizeMB: 10, acceptedTypes: ".pdf,.doc,.docx" },
 
-  // BLOQUE 7
-  { id: "telegramContacto", blockKey: "b7", type: "tel", required: true },
+  // BLOQUE 7 — todo opcional: el plan siempre llega por correo + panel,
+  // esto solo pregunta si además quieren que los contactemos.
   {
-    id: "quiereRevision", type: "single", required: true,
+    id: "quiereRevision", blockKey: "b7", type: "single", required: false,
     options: [
       opt("yes", "Sí, me gustaría.", "Yes, I'd like that.", "是的，我愿意。", "हाँ, मुझे यह पसंद आएगा।"),
       opt("no", "No, por el momento solo quiero recibir mi plan.", "No, for now I just want to receive my plan.", "不用了，目前我只想收到我的计划。", "नहीं, फ़िलहाल मुझे केवल अपनी योजना चाहिए।"),
     ],
+  },
+  {
+    id: "metodoContacto", type: "single", required: false,
+    showIf: (a) => a.quiereRevision === "yes",
+    options: [
+      opt("correo", "Correo", "Email", "邮件", "ईमेल"),
+      opt("telefono", "Teléfono", "Phone", "电话", "फ़ोन"),
+    ],
+  },
+  {
+    id: "telefonoContacto", type: "tel", required: false,
+    showIf: (a) => a.metodoContacto === "telefono",
   },
 ];
 
