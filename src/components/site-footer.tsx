@@ -31,11 +31,10 @@ export function SiteFooter() {
           </a>
         </div>
       </div>
-      <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 font-mono text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-4 font-mono text-[11px] text-muted-foreground sm:px-6">
         <span>
           © {year} balam — {t("rights")}
         </span>
-        <span>{t("builtWith")}</span>
       </div>
     </footer>
   );
