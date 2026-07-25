@@ -111,19 +111,14 @@ export function ChatWidget() {
       <div className="flex flex-1 flex-col overflow-hidden rounded-t-2xl border-x border-t border-terminal-green/25 bg-background/95 shadow-2xl backdrop-blur-md glow-border">
         {isExpanded && (
           <>
-            <div className="flex items-center justify-between border-b border-border px-4 py-3">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-terminal-green" />
-                <div className="leading-tight">
-                  <p className="font-mono text-sm text-foreground">
-                    creativa_balam
-                  </p>
-                  <p className="font-mono text-[10px] text-muted-foreground">
-                    {t("widgetSubtitle")}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]/70" />
+              <span className="ml-2 font-mono text-xs text-muted-foreground">
+                balam@chat
+              </span>
+              <div className="ml-auto flex items-center gap-1">
                 <button
                   type="button"
                   onClick={handleReset}
@@ -145,7 +140,7 @@ export function ChatWidget() {
 
             <div
               ref={scrollRef}
-              className="flex flex-1 flex-col gap-4 overflow-y-auto scrollbar-thin p-4"
+              className="flex flex-1 flex-col gap-4 overflow-y-auto scrollbar-thin p-4 font-mono text-sm leading-relaxed"
             >
               <AnimatePresence initial={false}>
                 {messages.map((m) => (
@@ -154,31 +149,34 @@ export function ChatWidget() {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.25 }}
-                    className={cn(
-                      "max-w-[85%] rounded-md border px-3.5 py-2.5 text-sm leading-relaxed",
-                      m.role === "user"
-                        ? "ml-auto border-terminal-cyan/30 bg-terminal-cyan/5 text-foreground"
-                        : "border-terminal-green/25 bg-terminal-green/5 text-foreground/90",
-                    )}
                   >
-                    <span
-                      className={cn(
-                        "mb-1 block font-mono text-[10px] tracking-wide",
-                        m.role === "user"
-                          ? "text-terminal-cyan"
-                          : "text-terminal-green",
-                      )}
-                    >
-                      {m.role === "user" ? "you" : "balam"}
-                    </span>
-                    {m.text}
+                    {m.role === "user" ? (
+                      <p>
+                        <span className="text-terminal-cyan">$</span>{" "}
+                        <span className="text-foreground">{m.text}</span>
+                      </p>
+                    ) : (
+                      <>
+                        {m.role === "assistant" && (
+                          <p className="text-terminal-green">$ balam</p>
+                        )}
+                        <p
+                          className={cn(
+                            "whitespace-pre-wrap text-foreground/90",
+                            m.role === "assistant" && "pl-4",
+                          )}
+                        >
+                          {m.text}
+                        </p>
+                      </>
+                    )}
                     {m.id === "greeting" && (
-                      <span className="mt-2 block font-mono text-xs text-muted-foreground">
+                      <p className="mt-2 text-xs text-muted-foreground">
                         {t("disclaimer")}
-                      </span>
+                      </p>
                     )}
                     {m.role === "assistant" && m.id !== "greeting" && (
-                      <span className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-terminal-green">
+                      <p className="mt-1 flex flex-wrap gap-x-4 gap-y-1 pl-4 text-xs text-terminal-green">
                         <a
                           href="mailto:balamcozu@proton.me"
                           className="hover:underline"
@@ -188,7 +186,7 @@ export function ChatWidget() {
                         <a href="tel:+529871123961" className="hover:underline">
                           +52 987 112 3961
                         </a>
-                      </span>
+                      </p>
                     )}
                   </motion.div>
                 ))}
