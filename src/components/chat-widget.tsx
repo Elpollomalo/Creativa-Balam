@@ -14,6 +14,7 @@ type Message = {
   id: string;
   role: "user" | "assistant";
   text: string;
+  isFallback?: boolean;
 };
 
 type BootSegment =
@@ -37,6 +38,10 @@ export function ChatWidget() {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const bootStarted = useRef(false);
+  const conversationId = useRef<string | undefined>(undefined);
+  const visitorId = useRef<string>(
+    typeof crypto !== "undefined" ? crypto.randomUUID() : "balam-visitor",
+  );
 
   const bootSegments: BootSegment[] = [
     { kind: "cmd", text: term("whoami") },
@@ -154,18 +159,50 @@ export function ChatWidget() {
     setPending(true);
 
     try {
-      await fetch("/api/chat", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed }),
+        body: JSON.stringify({
+          message: trimmed,
+          conversationId: conversationId.current,
+          user: visitorId.current,
+        }),
       });
+      const data = (await res.json()) as {
+        configured?: boolean;
+        answer?: string;
+        conversationId?: string;
+        error?: string;
+      };
+
+      if (data.configured && data.answer) {
+        conversationId.current = data.conversationId ?? conversationId.current;
+        setMessages((prev) => [
+          ...prev,
+          { id: crypto.randomUUID(), role: "assistant", text: data.answer! },
+        ]);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: crypto.randomUUID(),
+            role: "assistant",
+            text: t("stubReply"),
+            isFallback: true,
+          },
+        ]);
+      }
     } catch {
-      // stub endpoint — swallow network errors, still show the demo reply
-    } finally {
       setMessages((prev) => [
         ...prev,
-        { id: crypto.randomUUID(), role: "assistant", text: t("stubReply") },
+        {
+          id: crypto.randomUUID(),
+          role: "assistant",
+          text: t("stubReply"),
+          isFallback: true,
+        },
       ]);
+    } finally {
       setPending(false);
     }
   }
@@ -173,6 +210,7 @@ export function ChatWidget() {
   function handleReset(e: React.MouseEvent) {
     e.stopPropagation();
     setMessages([]);
+    conversationId.current = undefined;
   }
 
   const inProgress = revealedCount < bootSegments.length ? bootSegments[revealedCount] : null;
@@ -256,20 +294,22 @@ export function ChatWidget() {
                         <p className="whitespace-pre-wrap pl-4 text-foreground/90">
                           {m.text}
                         </p>
-                        <p className="mt-1 flex flex-wrap gap-x-4 gap-y-1 pl-4 text-xs text-terminal-green">
-                          <a
-                            href="mailto:balamcozu@proton.me"
-                            className="hover:underline"
-                          >
-                            balamcozu@proton.me
-                          </a>
-                          <a
-                            href="tel:+529871123961"
-                            className="hover:underline"
-                          >
-                            +52 987 112 3961
-                          </a>
-                        </p>
+                        {m.isFallback && (
+                          <p className="mt-1 flex flex-wrap gap-x-4 gap-y-1 pl-4 text-xs text-terminal-green">
+                            <a
+                              href="mailto:balamcozu@proton.me"
+                              className="hover:underline"
+                            >
+                              balamcozu@proton.me
+                            </a>
+                            <a
+                              href="tel:+529871123961"
+                              className="hover:underline"
+                            >
+                              +52 987 112 3961
+                            </a>
+                          </p>
+                        )}
                       </>
                     )}
                   </motion.div>
