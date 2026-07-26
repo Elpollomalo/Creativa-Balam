@@ -205,8 +205,8 @@ export function ChatWidget() {
     return () => document.removeEventListener("mousedown", onPointerDown);
   }, [isExpanded]);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function handleSubmit(e?: React.FormEvent) {
+    e?.preventDefault();
     if (!isExpanded) {
       setIsExpanded(true);
     }
@@ -402,8 +402,7 @@ export function ChatWidget() {
           </>
         )}
 
-        <form
-          onSubmit={handleSubmit}
+        <div
           className={cn(
             "flex shrink-0 items-center gap-2 px-4",
             isExpanded ? "border-t border-border py-3" : "h-16",
@@ -418,6 +417,12 @@ export function ChatWidget() {
               onFocus={() => {
                 setIsExpanded(true);
                 skipBoot();
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleSubmit();
+                }
               }}
               disabled={pending}
               type="text"
@@ -441,7 +446,8 @@ export function ChatWidget() {
             )}
           </div>
           <Button
-            type="submit"
+            type="button"
+            onClick={() => handleSubmit()}
             size="sm"
             disabled={pending || !input.trim()}
             className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
@@ -449,7 +455,7 @@ export function ChatWidget() {
             <Send className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">{t("send")}</span>
           </Button>
-        </form>
+        </div>
       </div>
     </div>
   );
