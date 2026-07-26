@@ -81,6 +81,18 @@ export function ChatWidget() {
   const [dragOffset, setDragOffset] = useState(0);
   const DRAG_THRESHOLD_PX = 70;
 
+  /**
+   * Minimizar el panel, quitándole el foco al input explícitamente. Si el
+   * input se queda enfocado (ej. al minimizar deslizando el dedo, en vez de
+   * tocar un botón que naturalmente roba el foco), un toque posterior sobre
+   * el mismo input no dispara un nuevo evento 'focus' (ya estaba enfocado),
+   * así que el panel nunca se volvía a expandir.
+   */
+  function handleMinimize() {
+    setIsExpanded(false);
+    inputRef.current?.blur();
+  }
+
   function handleHeaderTouchStart(e: React.TouchEvent) {
     dragStartY.current = e.touches[0].clientY;
   }
@@ -93,7 +105,7 @@ export function ChatWidget() {
 
   function handleHeaderTouchEnd() {
     if (dragOffset > DRAG_THRESHOLD_PX) {
-      setIsExpanded(false);
+      handleMinimize();
     }
     setDragOffset(0);
     dragStartY.current = null;
@@ -221,7 +233,7 @@ export function ChatWidget() {
     if (!isExpanded) return;
     function onPointerDown(e: MouseEvent) {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-        setIsExpanded(false);
+        handleMinimize();
       }
     }
     document.addEventListener("mousedown", onPointerDown);
@@ -355,7 +367,7 @@ export function ChatWidget() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setIsExpanded(false)}
+                  onClick={handleMinimize}
                   aria-label={t("minimize")}
                   className="rounded p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
