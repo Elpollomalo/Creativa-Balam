@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, IBM_Plex_Mono, Geist } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -33,6 +33,18 @@ const geist = Geist({
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+/**
+ * 'resizes-content': el navegador achica de verdad el viewport (layout +
+ * visual) cuando aparece el teclado, en vez de solo superponerlo encima del
+ * contenido (default 'resizes-visual'). Sin esto, el ChatWidget (fixed
+ * bottom-0) a veces se expandía "detrás" del teclado -- intermitente porque
+ * dependía de si el navegador alcanzaba a achicar el layout viewport a
+ * tiempo o no. Mismo fix aplicado en tourbrain-app el 26 julio 2026.
+ */
+export const viewport: Viewport = {
+  interactiveWidget: "resizes-content",
+};
 
 export async function generateMetadata({
   params,
