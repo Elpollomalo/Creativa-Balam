@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Send, Minus, RotateCcw } from "lucide-react";
+import { Send, Minus, RotateCcw, ChevronDown } from "lucide-react";
 import { usePathname } from "@/i18n/navigation";
 
 export const OPEN_CHAT_EVENT = "balam:open-chat";
@@ -330,8 +330,8 @@ export function ChatWidget() {
               onTouchEnd={handleHeaderTouchEnd}
               className="touch-none border-b border-border"
             >
-              <div className="flex justify-center pt-1.5 pb-0.5">
-                <div className="h-1 w-9 rounded-full bg-muted-foreground/30" />
+              <div className="flex justify-center pt-1 pb-0.5">
+                <ChevronDown className="h-3 w-3 text-terminal-green/40" strokeWidth={2.5} />
               </div>
               <div className="flex items-center gap-2 px-4 pb-2.5">
               <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
@@ -398,7 +398,7 @@ export function ChatWidget() {
                     ) : (
                       <>
                         <p className="text-terminal-green">$ balam</p>
-                        <p className="whitespace-pre-wrap pl-4 text-foreground/90">
+                        <p className="whitespace-pre-wrap pl-4 text-muted-foreground">
                           {m.text}
                         </p>
                         {m.isFallback && (
