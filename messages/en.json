@@ -51,8 +51,19 @@
         "name": "GNGA.Web3",
         "tagline": "Web3 protocol with its own conversational bot (Nibbles).",
         "detail": "Orchestrated via n8n + self-hosted AI, no third-party lock-in."
+      },
+      "ponexo": {
+        "name": "Ponexo",
+        "tagline": "AI-powered marketing diagnosis for real businesses.",
+        "detail": "Guided questionnaire + personalized plan by email. Available in 4 languages (EN/ES/ZH/HI)."
+      },
+      "tourquesa": {
+        "name": "Tourquesa Adventures",
+        "tagline": "Booking platform for tours in the Mexican Caribbean.",
+        "detail": "Tour catalog, deposit-based bookings via Stripe. Next.js, Supabase, Stripe."
       }
     },
+    "visitSite": "Visit site",
     "footerNote": "Could your product be next? Talk with us."
   },
   "chat": {
