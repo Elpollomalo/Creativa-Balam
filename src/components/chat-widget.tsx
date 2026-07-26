@@ -313,7 +313,11 @@ export function ChatWidget() {
       ref={panelRef}
       className={cn(
         "fixed inset-x-0 bottom-0 z-50 mx-auto flex w-full flex-col transition-[max-height] duration-300 ease-in-out",
-        isExpanded ? "max-h-[85vh] sm:max-h-[75vh]" : "max-h-16",
+        // dvh (dynamic viewport height), no vh -- con interactive-widget:
+        // resizes-content, vh no siempre recalcula de forma confiable al
+        // abrir el teclado en Android (a veces el panel se quedaba
+        // colapsado aunque isExpanded ya fuera true). dvh sí responde.
+        isExpanded ? "max-h-[85dvh] sm:max-h-[75dvh]" : "max-h-16",
       )}
       style={{
         maxWidth: "768px",
