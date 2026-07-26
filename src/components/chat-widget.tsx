@@ -425,7 +425,7 @@ export function ChatWidget() {
                 }
               }}
               disabled={pending}
-              type="text"
+              type="search"
               name="balam-chat-message"
               autoComplete="off"
               autoCorrect="off"
@@ -434,7 +434,7 @@ export function ChatWidget() {
               data-lpignore="true"
               data-1p-ignore=""
               data-form-type="other"
-              className="w-full bg-transparent font-mono text-sm text-foreground caret-terminal-green focus:outline-none disabled:opacity-50"
+              className="w-full appearance-none bg-transparent font-mono text-sm text-foreground caret-terminal-green focus:outline-none disabled:opacity-50 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
             />
             {!input && (
               <span
