@@ -25,25 +25,56 @@ type BootSegment =
 const CMD_MS_PER_CHAR = 14;
 const TEXT_MS_PER_CHAR = 8;
 const SEGMENT_PAUSE_MS = 350;
+const CHAT_STORAGE_KEY = "balam:chat-history";
+
+type StoredChat = {
+  messages: Message[];
+  conversationId?: string;
+  visitorId?: string;
+};
+
+function loadStoredChat(): StoredChat | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(CHAT_STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as StoredChat;
+  } catch {
+    return null;
+  }
+}
 
 export function ChatWidget() {
   const t = useTranslations("chat");
   const term = useTranslations("terminal");
   const pathname = usePathname();
-  const [isExpanded, setIsExpanded] = useState(pathname === "/");
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("");
-  const [pending, setPending] = useState(false);
+
+  // Se lee UNA sola vez, vía el inicializador perezoso de useState (nunca
+  // tocando un ref durante el render) — evita el patrón "leer localStorage
+  // en un efecto y llamar setState ahí adentro", que dispara un render en
+  // cascada extra y además causa un parpadeo (primero vacío, luego con
+  // historial).
+  const [initialChat] = useState<StoredChat | null>(() => loadStoredChat());
+  const hasStoredHistory = Boolean(initialChat?.messages?.length);
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const bootStarted = useRef(false);
-  const bootCancelled = useRef(false);
+  const bootStarted = useRef(hasStoredHistory);
+  const bootCancelled = useRef(hasStoredHistory);
   const bootTimeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const conversationId = useRef<string | undefined>(undefined);
+  const conversationId = useRef<string | undefined>(initialChat?.conversationId);
   const visitorId = useRef<string>(
-    typeof crypto !== "undefined" ? crypto.randomUUID() : "balam-visitor",
+    initialChat?.visitorId ??
+      (typeof crypto !== "undefined" ? crypto.randomUUID() : "balam-visitor"),
   );
+
+  const [isExpanded, setIsExpanded] = useState(pathname === "/");
+  const [messages, setMessages] = useState<Message[]>(
+    initialChat?.messages ?? [],
+  );
+  const [input, setInput] = useState("");
+  const [pending, setPending] = useState(false);
 
   const bootSegments: BootSegment[] = [
     { kind: "cmd", text: term("whoami") },
@@ -54,9 +85,11 @@ export function ChatWidget() {
     { kind: "output", text: term("statusOut") },
   ];
 
-  const [revealedCount, setRevealedCount] = useState(0);
+  const [revealedCount, setRevealedCount] = useState(
+    hasStoredHistory ? bootSegments.length : 0,
+  );
   const [partialText, setPartialText] = useState("");
-  const [bootFinished, setBootFinished] = useState(false);
+  const [bootFinished, setBootFinished] = useState(hasStoredHistory);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
@@ -64,6 +97,31 @@ export function ChatWidget() {
       behavior: "smooth",
     });
   }, [messages, pending, revealedCount, partialText]);
+
+  // Guarda la conversación en cada cambio, para que sobreviva a un reload.
+  useEffect(() => {
+    if (messages.length === 0) return;
+    try {
+      const toSave: StoredChat = {
+        messages,
+        conversationId: conversationId.current,
+        visitorId: visitorId.current,
+      };
+      window.localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(toSave));
+    } catch {
+      // localStorage no disponible — la conversación sigue funcionando en memoria.
+    }
+  }, [messages]);
+
+  function skipBoot() {
+    if (bootFinished) return;
+    bootCancelled.current = true;
+    bootTimeouts.current.forEach(clearTimeout);
+    bootTimeouts.current = [];
+    setRevealedCount(bootSegments.length);
+    setPartialText("");
+    setBootFinished(true);
+  }
 
   useEffect(() => {
     if (!isExpanded || bootStarted.current) return;
@@ -153,7 +211,8 @@ export function ChatWidget() {
       setIsExpanded(true);
     }
     const trimmed = input.trim();
-    if (!trimmed || pending || !bootFinished) return;
+    if (!trimmed || pending) return;
+    skipBoot();
 
     const userMessage: Message = {
       id: crypto.randomUUID(),
@@ -217,6 +276,11 @@ export function ChatWidget() {
     e.stopPropagation();
     setMessages([]);
     conversationId.current = undefined;
+    try {
+      window.localStorage.removeItem(CHAT_STORAGE_KEY);
+    } catch {
+      // localStorage no disponible — nada que limpiar.
+    }
   }
 
   const inProgress = revealedCount < bootSegments.length ? bootSegments[revealedCount] : null;
@@ -351,8 +415,20 @@ export function ChatWidget() {
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onFocus={() => setIsExpanded(true)}
-              disabled={pending || (isExpanded && !bootFinished)}
+              onFocus={() => {
+                setIsExpanded(true);
+                skipBoot();
+              }}
+              disabled={pending}
+              type="text"
+              name="balam-chat-message"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              data-lpignore="true"
+              data-1p-ignore=""
+              data-form-type="other"
               className="w-full bg-transparent font-mono text-sm text-foreground caret-terminal-green focus:outline-none disabled:opacity-50"
             />
             {!input && (
@@ -367,7 +443,7 @@ export function ChatWidget() {
           <Button
             type="submit"
             size="sm"
-            disabled={pending || !input.trim() || (isExpanded && !bootFinished)}
+            disabled={pending || !input.trim()}
             className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
           >
             <Send className="h-3.5 w-3.5" />
