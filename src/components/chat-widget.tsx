@@ -38,6 +38,8 @@ export function ChatWidget() {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const bootStarted = useRef(false);
+  const bootCancelled = useRef(false);
+  const bootTimeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
   const conversationId = useRef<string | undefined>(undefined);
   const visitorId = useRef<string>(
     typeof crypto !== "undefined" ? crypto.randomUUID() : "balam-visitor",
@@ -76,14 +78,12 @@ export function ChatWidget() {
         setRevealedCount(bootSegments.length);
         setBootFinished(true);
       }, 0);
-      return () => clearTimeout(id);
+      bootTimeouts.current.push(id);
+      return;
     }
 
-    let cancelled = false;
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
-
     async function typeSegment(index: number) {
-      if (cancelled) return;
+      if (bootCancelled.current) return;
       if (index >= bootSegments.length) {
         setBootFinished(true);
         return;
@@ -94,31 +94,38 @@ export function ChatWidget() {
       for (let i = 1; i <= segment.text.length; i++) {
         await new Promise<void>((resolve) => {
           const id = setTimeout(resolve, speed);
-          timeouts.push(id);
+          bootTimeouts.current.push(id);
         });
-        if (cancelled) return;
+        if (bootCancelled.current) return;
         setPartialText(segment.text.slice(0, i));
       }
 
-      if (cancelled) return;
+      if (bootCancelled.current) return;
       setRevealedCount(index + 1);
       setPartialText("");
 
       await new Promise<void>((resolve) => {
         const id = setTimeout(resolve, SEGMENT_PAUSE_MS);
-        timeouts.push(id);
+        bootTimeouts.current.push(id);
       });
       typeSegment(index + 1);
     }
 
     typeSegment(0);
-
-    return () => {
-      cancelled = true;
-      timeouts.forEach(clearTimeout);
-    };
+    // Sin cleanup ligado a `isExpanded`: minimizar el chat a mitad de la
+    // animación de boot NO debe cancelarla (bug real en producción — el
+    // texto se quedaba congelado a mitad para siempre al volver a abrir,
+    // porque bootStarted.current ya era true y el efecto no reintentaba).
+    // El único cleanup real vive en el efecto de abajo, atado al desmontaje.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isExpanded]);
+
+  useEffect(() => {
+    return () => {
+      bootCancelled.current = true;
+      bootTimeouts.current.forEach(clearTimeout);
+    };
+  }, []);
 
   useEffect(() => {
     function onOpen() {
