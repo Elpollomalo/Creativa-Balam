@@ -377,7 +377,7 @@ export function ChatWidget() {
               )}
 
               {bootFinished && (
-                <p className="pl-4 text-xs text-muted-foreground">
+                <p className="pl-4 text-muted-foreground">
                   {t("disclaimer")}
                 </p>
               )}
