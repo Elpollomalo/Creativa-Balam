@@ -76,6 +76,29 @@ export function ChatWidget() {
   const [input, setInput] = useState("");
   const [pending, setPending] = useState(false);
 
+  // ── Deslizar hacia abajo sobre el header para minimizar (bottom sheet) ──
+  const dragStartY = useRef<number | null>(null);
+  const [dragOffset, setDragOffset] = useState(0);
+  const DRAG_THRESHOLD_PX = 70;
+
+  function handleHeaderTouchStart(e: React.TouchEvent) {
+    dragStartY.current = e.touches[0].clientY;
+  }
+
+  function handleHeaderTouchMove(e: React.TouchEvent) {
+    if (dragStartY.current === null) return;
+    const delta = e.touches[0].clientY - dragStartY.current;
+    setDragOffset(Math.max(0, delta));
+  }
+
+  function handleHeaderTouchEnd() {
+    if (dragOffset > DRAG_THRESHOLD_PX) {
+      setIsExpanded(false);
+    }
+    setDragOffset(0);
+    dragStartY.current = null;
+  }
+
   const bootSegments: BootSegment[] = [
     { kind: "cmd", text: term("whoami") },
     { kind: "output", text: term("whoamiOut") },
@@ -292,12 +315,25 @@ export function ChatWidget() {
         "fixed inset-x-0 bottom-0 z-50 mx-auto flex w-full flex-col transition-[max-height] duration-300 ease-in-out",
         isExpanded ? "max-h-[85vh] sm:max-h-[75vh]" : "max-h-16",
       )}
-      style={{ maxWidth: "768px" }}
+      style={{
+        maxWidth: "768px",
+        transform: dragOffset ? `translateY(${dragOffset}px)` : undefined,
+        transition: dragOffset ? "none" : undefined,
+      }}
     >
       <div className="flex flex-1 flex-col overflow-hidden rounded-t-2xl border-x border-t border-terminal-green/25 bg-background/95 shadow-2xl backdrop-blur-md glow-border">
         {isExpanded && (
           <>
-            <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+            <div
+              onTouchStart={handleHeaderTouchStart}
+              onTouchMove={handleHeaderTouchMove}
+              onTouchEnd={handleHeaderTouchEnd}
+              className="touch-none border-b border-border"
+            >
+              <div className="flex justify-center pt-1.5 pb-0.5">
+                <div className="h-1 w-9 rounded-full bg-muted-foreground/30" />
+              </div>
+              <div className="flex items-center gap-2 px-4 pb-2.5">
               <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]/70" />
@@ -321,6 +357,7 @@ export function ChatWidget() {
                 >
                   <Minus className="h-3.5 w-3.5" />
                 </button>
+              </div>
               </div>
             </div>
 
