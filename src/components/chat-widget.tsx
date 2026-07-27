@@ -127,11 +127,16 @@ export function ChatWidget() {
   const [bootFinished, setBootFinished] = useState(hasStoredHistory);
 
   useEffect(() => {
+    // isExpanded en las dependencias: el contenedor con scroll solo existe
+    // en el DOM mientras el panel está expandido (se desmonta al minimizar,
+    // ver más abajo) -- al reabrir se monta uno nuevo con scrollTop en 0, y
+    // sin isExpanded aquí este efecto no se volvía a disparar, dejando el
+    // boot arriba en vez de saltar al final de la conversación real.
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [messages, pending, revealedCount, partialText]);
+  }, [messages, pending, revealedCount, partialText, isExpanded]);
 
   // Guarda la conversación en cada cambio, para que sobreviva a un reload.
   useEffect(() => {
