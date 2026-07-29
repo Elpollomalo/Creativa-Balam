@@ -39,8 +39,9 @@
     "title": "lo que hemos construido",
     "sub": "Productos en producción, no mockups.",
     "viewAll": "ver todas",
-    "statusLive": "EN PRODUCCIÓN",
-    "statusProgress": "EN DESARROLLO",
+    "statusOnline": "ONLINE",
+    "statusProduccion": "EN PRODUCCIÓN",
+    "statusDesarrollo": "EN DESARROLLO",
     "items": {
       "tourbrain": {
         "name": "TourBrain",

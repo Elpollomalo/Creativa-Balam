@@ -12,30 +12,47 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { TerminalWindow } from "@/components/terminal-window";
-import type { AppEntry } from "@/lib/apps-data";
+import type { AppEntry, AppStatus } from "@/lib/apps-data";
 import { cn } from "@/lib/utils";
+
+/**
+ * Estilo del badge por estado. Se usan solo los tokens que ya existen en el
+ * tema (terminal-green, terminal-cyan y el muted del sistema): el tema no
+ * tiene un tercer color de terminal, y agregar uno nuevo solo para esto
+ * rompería la paleta de la marca. "desarrollo" apagado también se lee bien:
+ * es el único que todavía no está afuera.
+ */
+const ESTILO_ESTADO: Record<AppStatus, { borde: string; punto: string; clave: string }> = {
+  online: {
+    borde: "border-terminal-green/40 text-terminal-green",
+    punto: "bg-terminal-green",
+    clave: "statusOnline",
+  },
+  produccion: {
+    borde: "border-terminal-cyan/40 text-terminal-cyan",
+    punto: "bg-terminal-cyan",
+    clave: "statusProduccion",
+  },
+  desarrollo: {
+    borde: "border-border text-muted-foreground",
+    punto: "bg-muted-foreground",
+    clave: "statusDesarrollo",
+  },
+};
 
 export function AppCard({ app }: { app: AppEntry }) {
   const t = useTranslations("apps");
-  const isLive = app.status === "live";
+  const estilo = ESTILO_ESTADO[app.status];
 
   const badge = (
     <Badge
       variant="outline"
-      className={cn(
-        "border font-mono text-[10px] tracking-wide",
-        isLive
-          ? "border-terminal-green/40 text-terminal-green"
-          : "border-terminal-cyan/40 text-terminal-cyan",
-      )}
+      className={cn("border font-mono text-[10px] tracking-wide", estilo.borde)}
     >
       <span
-        className={cn(
-          "mr-1.5 inline-block h-1.5 w-1.5 rounded-full",
-          isLive ? "bg-terminal-green" : "bg-terminal-cyan",
-        )}
+        className={cn("mr-1.5 inline-block h-1.5 w-1.5 rounded-full", estilo.punto)}
       />
-      {isLive ? t("statusLive") : t("statusProgress")}
+      {t(estilo.clave)}
     </Badge>
   );
 
