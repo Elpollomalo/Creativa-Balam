@@ -10,10 +10,10 @@
     "cta": "Talk with Balam"
   },
   "hero": {
-    "eyebrow": "software studio // cozumel, mx",
-    "line1": "We build digital products",
-    "line2": "that scale.",
-    "sub": "Balam is the studio behind TourBrain and other products running in production. We don't do agency websites — we build software that ships.",
+    "eyebrow": "software studio // apps & platforms",
+    "line1": "We design and build digital products",
+    "line2": "that last.",
+    "sub": "Balam builds applications, platforms and digital experiences designed to grow with every stage of your project.",
     "ctaPrimary": "Talk with Balam",
     "ctaSecondary": "View apps",
     "promptLabel": "balam@terminal"
@@ -27,11 +27,11 @@
     "statusOut": "open to talk about your next product and project, tell us what you have in mind?"
   },
   "principles": {
-    "title": "how we work",
+    "title": "principles",
     "items": [
-      { "title": "product, not project", "body": "we measure success in real usage, not deliverables." },
-      { "title": "applied AI, not decoration", "body": "we use it where it moves a metric, not as a marketing feature." },
-      { "title": "we ship fast", "body": "real production in weeks, not quarters." }
+      { "title": "Clarity.", "body": "The best technology is the one that feels simple." },
+      { "title": "Quality.", "body": "Every detail adds to the experience." },
+      { "title": "Evolution.", "body": "We build with the long term in mind." }
     ]
   },
   "apps": {
