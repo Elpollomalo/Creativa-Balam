@@ -1,21 +1,21 @@
 {
   "meta": {
-    "title": "Balam — Estudio de software",
-    "description": "Balam construye productos digitales. Terminal, no landing page."
+    "title": "Balam — estudio de software",
+    "description": "Balam construye productos digitales. terminal, no landing page."
   },
   "nav": {
-    "home": "Home",
-    "apps": "Apps",
-    "chat": "Chat",
-    "cta": "Habla con Balam"
+    "home": "home",
+    "apps": "apps",
+    "chat": "chat",
+    "cta": "habla con Balam"
   },
   "hero": {
     "eyebrow": "estudio de software // apps & plataformas",
-    "line1": "Diseñamos y construimos productos digitales",
+    "line1": "diseñamos y construimos productos digitales",
     "line2": "que perduran.",
     "sub": "Balam desarrolla aplicaciones, plataformas y experiencias digitales pensadas para crecer con cada etapa de tu proyecto.",
-    "ctaPrimary": "Habla con Balam",
-    "ctaSecondary": "Ver apps",
+    "ctaPrimary": "habla con Balam",
+    "ctaSecondary": "ver apps",
     "promptLabel": "balam@terminal"
   },
   "terminal": {
@@ -29,53 +29,53 @@
   "principles": {
     "title": "principios",
     "items": [
-      { "title": "Claridad.", "body": "La mejor tecnología es la que se siente simple." },
-      { "title": "Calidad.", "body": "Cada detalle suma a la experiencia." },
-      { "title": "Evolución.", "body": "Construimos pensando en el largo plazo." }
+      { "title": "claridad.", "body": "la mejor tecnología es la que se siente simple." },
+      { "title": "calidad.", "body": "cada detalle suma a la experiencia." },
+      { "title": "evolución.", "body": "construimos pensando en el largo plazo." }
     ]
   },
   "apps": {
     "eyebrow": "apps",
     "title": "lo que hemos construido",
-    "sub": "Productos en producción, no mockups.",
+    "sub": "productos en producción, no mockups.",
     "viewAll": "ver todas",
-    "statusOnline": "ONLINE",
-    "statusProduccion": "EN PRODUCCIÓN",
-    "statusDesarrollo": "EN DESARROLLO",
+    "statusOnline": "online",
+    "statusProduccion": "en producción",
+    "statusDesarrollo": "en desarrollo",
     "items": {
       "tourbrain": {
         "name": "TourBrain",
-        "tagline": "Plataforma de reservas y tours para proveedores locales en Cozumel.",
-        "detail": "Marketplace + chat con IA + panel de proveedores. Next.js, Supabase, Stripe."
+        "tagline": "plataforma de reservas y tours para proveedores locales en Cozumel.",
+        "detail": "marketplace + chat con IA + panel de proveedores. Next.js, Supabase, Stripe."
       },
       "gnga": {
         "name": "GNGA.Web3",
-        "tagline": "Protocolo Web3 con bot conversacional propio (Nibbles).",
-        "detail": "Orquestación vía n8n + IA self-hosted, sin dependencias de terceros."
+        "tagline": "protocolo Web3 con bot conversacional propio (Nibbles).",
+        "detail": "orquestación vía n8n + IA self-hosted, sin dependencias de terceros."
       },
       "ponexo": {
         "name": "Ponexo",
-        "tagline": "Diagnóstico de negocio con IA para empresas reales.",
-        "detail": "Cuestionario guiado, plan de acción por correo y panel propio con tu Marketing Score."
+        "tagline": "diagnóstico de negocio con IA para empresas reales.",
+        "detail": "cuestionario guiado, plan de acción por correo y panel propio con tu Marketing Score."
       },
       "tourquesa": {
         "name": "Tourquesa Adventures",
-        "tagline": "Plataforma de reservas para tours en el Caribe mexicano.",
-        "detail": "Catálogo de tours, reservas con depósito vía Stripe. Next.js, Supabase, Stripe."
+        "tagline": "plataforma de reservas para tours en el Caribe mexicano.",
+        "detail": "catálogo de tours, reservas con depósito vía Stripe. Next.js, Supabase, Stripe."
       }
     },
-    "visitSite": "Visitar sitio",
-    "footerNote": "¿Tu producto podría ser el siguiente? Habla con nosotros."
+    "visitSite": "visitar sitio",
+    "footerNote": "¿tu producto podría ser el siguiente? habla con nosotros."
   },
   "chat": {
     "eyebrow": "chat",
     "title": "habla con balam",
-    "sub": "Este es el punto de contacto real. Cuéntanos qué estás construyendo.",
+    "sub": "este es el punto de contacto real. cuéntanos qué estás construyendo.",
     "inputPlaceholder": "escribe un mensaje...",
     "send": "enviar",
-    "disclaimer": "Las conversaciones se revisan por el equipo de Balam. Tiempo de respuesta típico: menos de 24h.",
+    "disclaimer": "las conversaciones se revisan por el equipo de Balam. tiempo de respuesta típico: menos de 24h.",
     "connecting": "procesando...",
-    "stubReply": "Recibido. Este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. Mientras tanto, escríbenos directo:",
+    "stubReply": "recibido. este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. mientras tanto, escríbenos directo:",
     "widgetSubtitle": "asistente ia",
     "minimize": "minimizar",
     "reset": "reiniciar conversación"

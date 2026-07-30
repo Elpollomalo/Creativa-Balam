@@ -1,21 +1,21 @@
 {
   "meta": {
-    "title": "Balam — Software studio",
-    "description": "Balam builds digital products. Terminal, not a landing page."
+    "title": "Balam — software studio",
+    "description": "Balam builds digital products. terminal, not a landing page."
   },
   "nav": {
-    "home": "Home",
-    "apps": "Apps",
-    "chat": "Chat",
-    "cta": "Talk with Balam"
+    "home": "home",
+    "apps": "apps",
+    "chat": "chat",
+    "cta": "talk with Balam"
   },
   "hero": {
     "eyebrow": "software studio // apps & platforms",
-    "line1": "We design and build digital products",
+    "line1": "we design and build digital products",
     "line2": "that last.",
     "sub": "Balam builds applications, platforms and digital experiences designed to grow with every stage of your project.",
-    "ctaPrimary": "Talk with Balam",
-    "ctaSecondary": "View apps",
+    "ctaPrimary": "talk with Balam",
+    "ctaSecondary": "view apps",
     "promptLabel": "balam@terminal"
   },
   "terminal": {
@@ -29,53 +29,53 @@
   "principles": {
     "title": "principles",
     "items": [
-      { "title": "Clarity.", "body": "The best technology is the one that feels simple." },
-      { "title": "Quality.", "body": "Every detail adds to the experience." },
-      { "title": "Evolution.", "body": "We build with the long term in mind." }
+      { "title": "clarity.", "body": "the best technology is the one that feels simple." },
+      { "title": "quality.", "body": "every detail adds to the experience." },
+      { "title": "evolution.", "body": "we build with the long term in mind." }
     ]
   },
   "apps": {
     "eyebrow": "apps",
     "title": "what we've built",
-    "sub": "Products in production, not mockups.",
+    "sub": "products in production, not mockups.",
     "viewAll": "view all",
-    "statusOnline": "ONLINE",
-    "statusProduccion": "IN PRODUCTION",
-    "statusDesarrollo": "IN DEVELOPMENT",
+    "statusOnline": "online",
+    "statusProduccion": "in production",
+    "statusDesarrollo": "in development",
     "items": {
       "tourbrain": {
         "name": "TourBrain",
-        "tagline": "Booking and tours platform for local providers in Cozumel.",
-        "detail": "Marketplace + AI chat + provider dashboard. Next.js, Supabase, Stripe."
+        "tagline": "booking and tours platform for local providers in Cozumel.",
+        "detail": "marketplace + AI chat + provider dashboard. Next.js, Supabase, Stripe."
       },
       "gnga": {
         "name": "GNGA.Web3",
         "tagline": "Web3 protocol with its own conversational bot (Nibbles).",
-        "detail": "Orchestrated via n8n + self-hosted AI, no third-party lock-in."
+        "detail": "orchestrated via n8n + self-hosted AI, no third-party lock-in."
       },
       "ponexo": {
         "name": "Ponexo",
         "tagline": "AI-powered business diagnosis for real companies.",
-        "detail": "Guided questionnaire, action plan by email, and your own dashboard with a Marketing Score."
+        "detail": "guided questionnaire, action plan by email, and your own dashboard with a Marketing Score."
       },
       "tourquesa": {
         "name": "Tourquesa Adventures",
-        "tagline": "Booking platform for tours in the Mexican Caribbean.",
-        "detail": "Tour catalog, deposit-based bookings via Stripe. Next.js, Supabase, Stripe."
+        "tagline": "booking platform for tours in the Mexican Caribbean.",
+        "detail": "tour catalog, deposit-based bookings via Stripe. Next.js, Supabase, Stripe."
       }
     },
-    "visitSite": "Visit site",
-    "footerNote": "Could your product be next? Talk with us."
+    "visitSite": "visit site",
+    "footerNote": "could your product be next? talk with us."
   },
   "chat": {
     "eyebrow": "chat",
     "title": "talk with balam",
-    "sub": "This is the real point of contact. Tell us what you're building.",
+    "sub": "this is the real point of contact. tell us what you're building.",
     "inputPlaceholder": "type a message...",
     "send": "send",
-    "disclaimer": "Conversations are reviewed by the Balam team. Typical response time: under 24h.",
+    "disclaimer": "conversations are reviewed by the Balam team. typical response time: under 24h.",
     "connecting": "processing...",
-    "stubReply": "Got it. This channel is still running in demo mode — soon it'll connect to our live assistant. In the meantime, reach us directly:",
+    "stubReply": "got it. this channel is still running in demo mode — soon it'll connect to our live assistant. in the meantime, reach us directly:",
     "widgetSubtitle": "ai assistant",
     "minimize": "minimize",
     "reset": "reset conversation"
