@@ -15,17 +15,22 @@ export function SiteFooter() {
           </p>
         </div>
 
+        {/* `py-2 -my-2` da a cada enlace los 24px de alto táctil que pide
+            WCAG, sin mover nada visualmente: el padding crece el área que se
+            puede tocar y el margen negativo la reabsorbe en el layout. El
+            teléfono y el correo eran los objetivos que Lighthouse marcaba
+            como demasiado pequeños (accesibilidad 84, 1 ago 2026). */}
         <div className="space-y-1.5 font-mono text-xs text-muted-foreground sm:text-right">
           <p className="text-foreground/70">{t("contact")}</p>
           <a
             href="tel:+529871123961"
-            className="block transition-colors hover:text-terminal-green"
+            className="block -my-2 py-2 transition-colors hover:text-terminal-green"
           >
             {t("phone")}
           </a>
           <a
             href="mailto:balamcozu@proton.me"
-            className="block transition-colors hover:text-terminal-green"
+            className="block -my-2 py-2 transition-colors hover:text-terminal-green"
           >
             {t("email")}
           </a>

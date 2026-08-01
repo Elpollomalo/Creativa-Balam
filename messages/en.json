@@ -73,6 +73,8 @@
     "sub": "this is the real point of contact. tell us what you're building.",
     "inputPlaceholder": "type a message...",
     "send": "send",
+    "inputLabel": "Type your message to Creativa Balam",
+    "sendLabel": "Send message",
     "disclaimer": "conversations are reviewed by the Balam team. typical response time: under 24h.",
     "connecting": "processing...",
     "stubReply": "got it. this channel is still running in demo mode — soon it'll connect to our live assistant. in the meantime, reach us directly:",

@@ -485,6 +485,12 @@ export function ChatWidget() {
               disabled={pending}
               type="search"
               name="balam-chat-message"
+              /* Sin nombre accesible, un lector de pantalla anuncia esto como
+                 un campo de búsqueda vacío y el usuario no sabe qué escribir.
+                 Va como aria-label y no como <label> visible porque el diseño
+                 de terminal no tiene dónde ponerlo sin romperse. Detectado
+                 por Lighthouse (accesibilidad 84, 1 ago 2026). */
+              aria-label={t("inputLabel")}
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"
@@ -508,9 +514,13 @@ export function ChatWidget() {
             onClick={() => handleSubmit()}
             size="sm"
             disabled={pending || !input.trim()}
+            /* En móvil el texto se oculta (`hidden sm:inline`) y quedaba solo
+               el icono: un lector de pantalla anunciaba "botón", sin más.
+               El aria-label lo nombra siempre, se vea o no el texto. */
+            aria-label={t("sendLabel")}
             className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
           >
-            <Send className="h-3.5 w-3.5" />
+            <Send className="h-3.5 w-3.5" aria-hidden="true" />
             <span className="hidden sm:inline">{t("send")}</span>
           </Button>
         </div>
