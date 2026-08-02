@@ -45,13 +45,13 @@
     "items": {
       "tourbrain": {
         "name": "TourBrain",
-        "tagline": "plataforma de reservas y tours para proveedores locales en Cozumel.",
+        "tagline": "plataforma de reservas y tours para proveedores locales.",
         "detail": "marketplace + chat con IA + panel de proveedores. Next.js, Supabase, Stripe."
       },
       "bluereef": {
         "name": "Blue Reef Divers",
-        "tagline": "buceo y esnórquel en cozumel. sitio caído y reconstruido desde cero.",
-        "detail": "catálogo de servicios con ficha por tour, reserva con depósito por PayPal o WhatsApp, reseñas en vivo, modo claro y oscuro. Next.js, Tailwind."
+        "tagline": "sitio de buceo y esnórquel en Cozumel.",
+        "detail": "catálogo de tours, reserva con depósito vía PayPal. Next.js, Tailwind."
       },
       "gnga": {
         "name": "GNGA.Web3",
