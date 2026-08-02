@@ -48,6 +48,11 @@
         "tagline": "booking and tours platform for local providers in Cozumel.",
         "detail": "marketplace + AI chat + provider dashboard. Next.js, Supabase, Stripe."
       },
+      "bluereef": {
+        "name": "Blue Reef Divers",
+        "tagline": "scuba diving and snorkeling in cozumel. site went down and was rebuilt from scratch.",
+        "detail": "service catalog with a sheet per tour, deposit booking via PayPal or WhatsApp, live reviews, light and dark mode. Next.js, Tailwind."
+      },
       "gnga": {
         "name": "GNGA.Web3",
         "tagline": "Web3 protocol with its own conversational bot (Nibbles).",
