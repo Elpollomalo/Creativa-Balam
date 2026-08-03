@@ -45,7 +45,7 @@ export const apps: AppEntry[] = [
     slug: "ponexo",
     status: "produccion",
     stack: ["Next.js", "Supabase", "n8n"],
-    url: "https://diagnostico.creativabalam.com.mx",
+    url: "https://www.ponexo.work",
   },
   {
     slug: "gnga",
