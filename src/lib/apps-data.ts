@@ -25,13 +25,13 @@ export const apps: AppEntry[] = [
     slug: "tourquesa",
     status: "online",
     stack: ["Next.js", "Supabase", "Stripe"],
-    url: "https://tourquesa.vercel.app",
+    url: "https://www.tourquesa.com.mx",
   },
   {
     slug: "tourbrain",
     status: "online",
     stack: ["Next.js", "Supabase", "Stripe"],
-    url: "https://tourbrain-app.vercel.app",
+    url: "https://www.tourbrain.online",
   },
   {
     slug: "bluereef",
@@ -39,7 +39,7 @@ export const apps: AppEntry[] = [
     // Sin Supabase ni Stripe, a diferencia de los otros: la reserva se cierra
     // por WhatsApp o pagando el depósito con PayPal, sin backend propio.
     stack: ["Next.js", "Tailwind", "PayPal"],
-    url: "https://bluereef-app.vercel.app",
+    url: "https://www.bluereefdiversmx.com",
   },
   {
     slug: "ponexo",
