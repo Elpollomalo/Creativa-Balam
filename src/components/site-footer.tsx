@@ -29,7 +29,7 @@ export function SiteFooter() {
             {t("phone")}
           </a>
           <a
-            href="mailto:balamcozu@proton.me"
+            href="mailto:hola@creativabalam.com.mx"
             className="block -my-2 py-2 transition-colors hover:text-terminal-green"
           >
             {t("email")}
