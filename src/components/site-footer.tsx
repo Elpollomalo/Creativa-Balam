@@ -13,6 +13,9 @@ export function SiteFooter() {
           <p className="font-mono text-xs text-muted-foreground">
             {t("tagline")}
           </p>
+          <p className="font-mono text-xs text-muted-foreground">
+            {t("location")}
+          </p>
         </div>
 
         {/* `py-2 -my-2` da a cada enlace los 24px de alto táctil que pide
