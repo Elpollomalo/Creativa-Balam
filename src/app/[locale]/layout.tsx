@@ -81,6 +81,50 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${plexMono.variable} ${geist.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        {/* JSON-LD — Organization + WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Creativa Balam",
+                alternateName: "Balam",
+                url: "https://creativabalam.com.mx",
+                logo: "https://creativabalam.com.mx/icon.svg",
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  telephone: "+52-987-112-3961",
+                  email: "hola@creativabalam.com.mx",
+                  contactType: "customer service",
+                  areaServed: "MX",
+                  availableLanguage: ["Spanish", "English"],
+                },
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Cozumel",
+                  addressRegion: "Quintana Roo",
+                  addressCountry: "MX",
+                },
+                description:
+                  "Estudio independiente de software en Cozumel, México. Diseña y construye aplicaciones y plataformas digitales: TourBrain, Tourquesa Adventures, Blue Reef Divers, Ponexo, GNGA.Web3.",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "Creativa Balam",
+                url: "https://creativabalam.com.mx",
+                inLanguage: ["es", "en"],
+                publisher: {
+                  "@type": "Organization",
+                  name: "Creativa Balam",
+                },
+              },
+            ]),
+          }}
+        />
+        
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KCVXEEGRL2"
           strategy="afterInteractive"

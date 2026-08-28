@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Balam — estudio de software",
-    "description": "Balam construye productos digitales. terminal, no landing page."
+    "description": "Estudio independiente de software en Cozumel, México. Balam diseña y construye aplicaciones y plataformas digitales: TourBrain, Tourquesa Adventures, Blue Reef Divers, Ponexo y GNGA.Web3."
   },
   "nav": {
     "home": "home",
@@ -29,9 +29,18 @@
   "principles": {
     "title": "principios",
     "items": [
-      { "title": "claridad.", "body": "la mejor tecnología es la que se siente simple." },
-      { "title": "calidad.", "body": "cada detalle suma a la experiencia." },
-      { "title": "evolución.", "body": "construimos pensando en el largo plazo." }
+      {
+        "title": "claridad.",
+        "body": "la mejor tecnología es la que se siente simple."
+      },
+      {
+        "title": "calidad.",
+        "body": "cada detalle suma a la experiencia."
+      },
+      {
+        "title": "evolución.",
+        "body": "construimos pensando en el largo plazo."
+      }
     ]
   },
   "apps": {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Balam — software studio",
-    "description": "Balam builds digital products. terminal, not a landing page."
+    "description": "Independent software studio based in Cozumel, Mexico. Balam designs and builds digital apps and platforms: TourBrain, Tourquesa Adventures, Blue Reef Divers, Ponexo, and GNGA.Web3."
   },
   "nav": {
     "home": "home",
@@ -29,9 +29,18 @@
   "principles": {
     "title": "principles",
     "items": [
-      { "title": "clarity.", "body": "the best technology is the one that feels simple." },
-      { "title": "quality.", "body": "every detail adds to the experience." },
-      { "title": "evolution.", "body": "we build with the long term in mind." }
+      {
+        "title": "clarity.",
+        "body": "the best technology is the one that feels simple."
+      },
+      {
+        "title": "quality.",
+        "body": "every detail adds to the experience."
+      },
+      {
+        "title": "evolution.",
+        "body": "we build with the long term in mind."
+      }
     ]
   },
   "apps": {
