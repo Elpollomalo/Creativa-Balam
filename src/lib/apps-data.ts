@@ -4,7 +4,8 @@
  * El ORDEN de este arreglo es el que se muestra en la home y en /apps (las dos
  * páginas lo recorren tal cual) — lo definió Carlos el 29 julio 2026:
  * Tourquesa, TourBrain, Ponexo, GNGA.Web3. El 2 agosto 2026 Carlos agregó
- * Blue Reef Divers debajo de TourBrain.
+ * Blue Reef Divers debajo de TourBrain. El 24 septiembre 2026 se agregó
+ * CozuTours al final.
  *
  * Tres estados, no dos (antes solo había "live" y "progress"):
  *  - `online`      → ya está en línea y cualquiera puede entrar.
@@ -14,7 +15,7 @@
 export type AppStatus = "online" | "produccion" | "desarrollo";
 
 export type AppEntry = {
-  slug: "tourbrain" | "bluereef" | "gnga" | "ponexo" | "tourquesa";
+  slug: "tourbrain" | "bluereef" | "gnga" | "ponexo" | "tourquesa" | "cozutours";
   status: AppStatus;
   stack: string[];
   url: string;
@@ -52,5 +53,11 @@ export const apps: AppEntry[] = [
     status: "desarrollo",
     stack: ["n8n", "Dify", "Telegram"],
     url: "https://gnga.tech",
+  },
+  {
+    slug: "cozutours",
+    status: "online",
+    stack: ["Next.js", "Supabase", "Stripe", "Resend"],
+    url: "https://www.cozutours.com",
   },
 ];

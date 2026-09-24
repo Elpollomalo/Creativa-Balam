@@ -76,6 +76,11 @@
         "name": "Tourquesa Adventures",
         "tagline": "plataforma de reservas para tours en el Caribe mexicano.",
         "detail": "catálogo de tours, reservas con depósito vía Stripe. Next.js, Supabase, Stripe."
+      },
+      "cozutours": {
+        "name": "CozuTours",
+        "tagline": "reservas de tours en Cozumel para una operadora local.",
+        "detail": "catálogo de tours, reservas con depósito vía Stripe, correos con Resend. Next.js, Supabase, Stripe."
       }
     },
     "visitSite": "visitar sitio",

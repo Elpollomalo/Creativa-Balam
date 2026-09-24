@@ -76,6 +76,11 @@
         "name": "Tourquesa Adventures",
         "tagline": "booking platform for tours in the Mexican Caribbean.",
         "detail": "tour catalog, deposit-based bookings via Stripe. Next.js, Supabase, Stripe."
+      },
+      "cozutours": {
+        "name": "CozuTours",
+        "tagline": "tour booking site in Cozumel for a local operator.",
+        "detail": "tour catalog, deposit-based bookings via Stripe, emails via Resend. Next.js, Supabase, Stripe."
       }
     },
     "visitSite": "visit site",
