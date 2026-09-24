@@ -5,7 +5,8 @@
  * páginas lo recorren tal cual) — lo definió Carlos el 29 julio 2026:
  * Tourquesa, TourBrain, Ponexo, GNGA.Web3. El 2 agosto 2026 Carlos agregó
  * Blue Reef Divers debajo de TourBrain. El 24 septiembre 2026 se agregó
- * CozuTours al final.
+ * CozuTours al final, y ese mismo día Carlos pidió subirlo, así que ahora va
+ * primero.
  *
  * Tres estados, no dos (antes solo había "live" y "progress"):
  *  - `online`      → ya está en línea y cualquiera puede entrar.
@@ -22,6 +23,12 @@ export type AppEntry = {
 };
 
 export const apps: AppEntry[] = [
+  {
+    slug: "cozutours",
+    status: "online",
+    stack: ["Next.js", "Supabase", "Stripe", "Resend"],
+    url: "https://www.cozutours.com",
+  },
   {
     slug: "tourquesa",
     status: "online",
@@ -53,11 +60,5 @@ export const apps: AppEntry[] = [
     status: "desarrollo",
     stack: ["n8n", "Dify", "Telegram"],
     url: "https://gnga.tech",
-  },
-  {
-    slug: "cozutours",
-    status: "online",
-    stack: ["Next.js", "Supabase", "Stripe", "Resend"],
-    url: "https://www.cozutours.com",
   },
 ];
