@@ -100,8 +100,7 @@
     "widgetSubtitle": "asistente ia",
     "minimize": "minimizar",
     "reset": "reiniciar conversación",
-    "collapsedHintWho": "el asistente virtual de creativa balam",
-    "collapsedHintHelp": "aquí para tu próximo proyecto"
+    "collapsedHint": "Soy el asistente virtual de Creativa Balam. ¿Te ayudo con tu próximo proyecto?"
   },
   "footer": {
     "tagline": "Balam — estudio de software.",
