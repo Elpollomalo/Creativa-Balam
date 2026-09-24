@@ -99,7 +99,8 @@
     "stubReply": "got it. this channel is still running in demo mode — soon it'll connect to our live assistant. in the meantime, reach us directly:",
     "widgetSubtitle": "ai assistant",
     "minimize": "minimize",
-    "reset": "reset conversation"
+    "reset": "reset conversation",
+    "collapsedHint": "I'm balam's virtual assistant"
   },
   "footer": {
     "tagline": "Balam — software studio.",

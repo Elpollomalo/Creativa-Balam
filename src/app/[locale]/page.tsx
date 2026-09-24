@@ -36,7 +36,10 @@ export default async function HomePage({
           <h1 className="text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {hero("line1")}
             <br />
-            <span className="text-glow text-terminal-green">
+            {/* /90 en vez del verde puro: Carlos lo sintió muy brilloso y
+                chillón (24 sep 2026) — combinado con el glow ya bajado en
+                globals.css. */}
+            <span className="text-glow text-terminal-green/90">
               {hero("line2")}
             </span>
           </h1>

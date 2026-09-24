@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Send, Minus, RotateCcw, ChevronDown } from "lucide-react";
-import { usePathname } from "@/i18n/navigation";
 
 export const OPEN_CHAT_EVENT = "balam:open-chat";
 
@@ -25,6 +24,9 @@ type BootSegment =
 const CMD_MS_PER_CHAR = 14;
 const TEXT_MS_PER_CHAR = 8;
 const SEGMENT_PAUSE_MS = 350;
+// Más lento que el boot (8ms): ese texto es un dump que se lee de corrido;
+// este es lo primero que alguien ve del chat, tiene que dar tiempo a leerse.
+const HINT_MS_PER_CHAR = 45;
 const CHAT_STORAGE_KEY = "balam:chat-history";
 
 type StoredChat = {
@@ -47,7 +49,6 @@ function loadStoredChat(): StoredChat | null {
 export function ChatWidget() {
   const t = useTranslations("chat");
   const term = useTranslations("terminal");
-  const pathname = usePathname();
 
   // Se lee UNA sola vez, vía el inicializador perezoso de useState (nunca
   // tocando un ref durante el render) — evita el patrón "leer localStorage
@@ -69,7 +70,11 @@ export function ChatWidget() {
       (typeof crypto !== "undefined" ? crypto.randomUUID() : "balam-visitor"),
   );
 
-  const [isExpanded, setIsExpanded] = useState(pathname === "/");
+  // Antes se abría solo en la home (`pathname === "/"`). Carlos, 24 sep 2026:
+  // no quiere que el chat se abra de inmediato -- que primero se vea la
+  // barra minimizada con el texto animado (ver `collapsedHint` abajo), y que
+  // la intro de boot salga hasta que el usuario lo abra.
+  const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>(
     initialChat?.messages ?? [],
   );
@@ -224,6 +229,54 @@ export function ChatWidget() {
       bootTimeouts.current.forEach(clearTimeout);
     };
   }, []);
+
+  /**
+   * El texto de la barra minimizada ("asistente virtual de balam...") se
+   * escribe letra por letra una sola vez, para que se note que ahí hay un
+   * asistente sin necesidad de abrir el chat. No se reinicia si el panel se
+   * abre y se vuelve a minimizar -- ya se leyó una vez.
+   */
+  const [collapsedHint, setCollapsedHint] = useState("");
+  const collapsedHintDone = useRef(false);
+
+  useEffect(() => {
+    if (collapsedHintDone.current) return;
+    const fullText = t("collapsedHint");
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    let cancelled = false;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+
+    if (reduceMotion) {
+      const id = setTimeout(() => {
+        setCollapsedHint(fullText);
+        collapsedHintDone.current = true;
+      }, 0);
+      timeouts.push(id);
+      return () => {
+        cancelled = true;
+        timeouts.forEach(clearTimeout);
+      };
+    }
+
+    function typeChar(i: number) {
+      if (cancelled) return;
+      setCollapsedHint(fullText.slice(0, i));
+      if (i >= fullText.length) {
+        collapsedHintDone.current = true;
+        return;
+      }
+      timeouts.push(setTimeout(() => typeChar(i + 1), HINT_MS_PER_CHAR));
+    }
+    typeChar(0);
+
+    return () => {
+      cancelled = true;
+      timeouts.forEach(clearTimeout);
+    };
+  }, [t]);
 
   useEffect(() => {
     function onOpen() {
@@ -473,8 +526,12 @@ export function ChatWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onFocus={() => {
+                // Antes saltaba la intro (`skipBoot()`) apenas se enfocaba
+                // el input, que era casi siempre -- así nunca se veía la
+                // animación de boot. Carlos, 24 sep 2026: que al abrir salga
+                // la intro normal. Se sigue saltando si el usuario ya manda
+                // un mensaje (ver `handleSubmit`).
                 setIsExpanded(true);
-                skipBoot();
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -500,7 +557,19 @@ export function ChatWidget() {
               data-form-type="other"
               className="w-full appearance-none bg-transparent font-mono text-sm text-foreground caret-terminal-green focus:outline-none disabled:opacity-50 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
             />
-            {!input && (
+            {!input && !isExpanded && (
+              // Minimizado: el cursor solo no dice qué es esto. El hint
+              // escrito letra por letra (arriba) avisa que hay un asistente
+              // ahí antes de que alguien lo abra.
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-0 right-0 top-1/2 flex -translate-y-1/2 items-center overflow-hidden whitespace-nowrap text-muted-foreground"
+              >
+                {collapsedHint}
+                <span className="terminal-cursor ml-px text-terminal-green">▍</span>
+              </span>
+            )}
+            {!input && isExpanded && (
               <span
                 aria-hidden
                 className="terminal-cursor pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-terminal-green"

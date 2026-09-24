@@ -99,7 +99,8 @@
     "stubReply": "recibido. este canal todavía corre en modo demo — pronto quedará conectado a nuestro asistente en vivo. mientras tanto, escríbenos directo:",
     "widgetSubtitle": "asistente ia",
     "minimize": "minimizar",
-    "reset": "reiniciar conversación"
+    "reset": "reiniciar conversación",
+    "collapsedHint": "soy el asistente virtual de balam"
   },
   "footer": {
     "tagline": "Balam — estudio de software.",

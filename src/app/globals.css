@@ -119,7 +119,10 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 20px color-mix(in oklab, var(--terminal-green) 55%, transparent);
+    /* Antes 20px / 55% -- Carlos: "muy brilloso, muy chillón y pesado para
+       la computadora" (24 sep 2026). Bajado a la mitad; solo lo usa el
+       titular del hero, así que no afecta botones ni badges. */
+    text-shadow: 0 0 10px color-mix(in oklab, var(--terminal-green) 28%, transparent);
   }
 
   .glow-border {
