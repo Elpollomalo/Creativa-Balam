@@ -22,7 +22,7 @@
     "whoami": "whoami",
     "whoamiOut": "estudio independiente de software — Cozumel, México",
     "stack": "cat stack.txt",
-    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · IA aplicada",
+    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · pagos (Stripe, PayPal) · automatización con IA (n8n, Dify) · bots y Web3",
     "status": "cat status.txt",
     "statusOut": "disponible para conversar sobre tu próximo producto y proyecto, cuéntanos qué tienes en mente?"
   },
