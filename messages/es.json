@@ -44,7 +44,7 @@
     ]
   },
   "apps": {
-    "eyebrow": "apps",
+    "eyebrow": "portafolio",
     "title": "lo que hemos construido",
     "sub": "productos en producción, no mockups.",
     "viewAll": "ver todas",
@@ -100,7 +100,9 @@
     "widgetSubtitle": "asistente ia",
     "minimize": "minimizar",
     "reset": "reiniciar conversación",
-    "collapsedHint": "Soy el asistente virtual de Creativa Balam. ¿Te ayudo con tu próximo proyecto?"
+    "collapsedHint": "Soy el asistente virtual de Creativa Balam. ¿Te ayudo con tu próximo proyecto?",
+    "whatsappLabel": "Escríbenos por WhatsApp",
+    "whatsappText": "Hola, vengo de creativabalam.com.mx y quiero contarles mi idea."
   },
   "footer": {
     "tagline": "Balam — estudio de software.",

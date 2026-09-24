@@ -28,6 +28,8 @@ const SEGMENT_PAUSE_MS = 350;
 // este es lo primero que alguien ve del chat, tiene que dar tiempo a leerse.
 const HINT_MS_PER_CHAR = 45;
 const CHAT_STORAGE_KEY = "balam:chat-history";
+// El mismo número de contacto del footer y del layout (JSON-LD).
+const WHATSAPP_NUMBER = "529871123961";
 
 type StoredChat = {
   messages: Message[];
@@ -267,6 +269,28 @@ export function ChatWidget() {
     };
   }, [t]);
 
+  /**
+   * La pestaña de WhatsApp solo se asoma pasado el hero: arriba estorba y el
+   * hero ya tiene sus dos botones. Carlos, 24 sep 2026.
+   */
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setPastHero(window.scrollY > window.innerHeight * 0.6);
+    }
+    // En un rAF (no directo) por la regla contra setState síncrono en efectos;
+    // cubre el caso de recargar la página ya scrolleada.
+    const raf = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const showWhatsapp = pastHero && !isExpanded;
+
   useEffect(() => {
     function onOpen() {
       setIsExpanded(true);
@@ -384,6 +408,32 @@ export function ChatWidget() {
         transition: dragOffset ? "none" : undefined,
       }}
     >
+      {/* WhatsApp como pestaña de terminal que se asoma por detrás de la
+          barra del chat (no un botón flotante más): no ocupa lugar dentro de
+          la barra, no aparece en el hero y se esconde al abrir el chat.
+          `-z-10` la deja detrás del panel, así sube "desde adentro". */}
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t("whatsappText"))}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t("whatsappLabel")}
+        aria-hidden={!showWhatsapp}
+        tabIndex={showWhatsapp ? 0 : -1}
+        className={cn(
+          "absolute bottom-full right-5 -z-10 -mb-px flex items-center gap-2 rounded-t-lg border-x border-t border-terminal-green/25 bg-background/95 px-3 pt-1.5 pb-1 font-mono text-xs text-muted-foreground backdrop-blur-md transition-all duration-500 ease-out hover:text-terminal-green",
+          showWhatsapp
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-full opacity-0",
+        )}
+      >
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-terminal-green opacity-60" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-terminal-green" />
+        </span>
+        <WhatsappIcon className="h-3.5 w-3.5 text-terminal-green" />
+        whatsapp
+      </a>
+
       <div className="flex flex-1 flex-col overflow-hidden rounded-t-2xl border-x border-t border-terminal-green/25 bg-background/95 shadow-2xl backdrop-blur-md glow-border">
         {isExpanded && (
           <>
@@ -584,6 +634,14 @@ export function ChatWidget() {
         </div>
       </div>
     </div>
+  );
+}
+
+function WhatsappIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43m8.03-17.46A11.28 11.28 0 0 0 12.05.7C5.8.7.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.6l6.02-1.58a11.34 11.34 0 0 0 5.42 1.38h.01c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.89-3.33-8.03" />
+    </svg>
   );
 }
 

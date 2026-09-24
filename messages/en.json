@@ -44,7 +44,7 @@
     ]
   },
   "apps": {
-    "eyebrow": "apps",
+    "eyebrow": "portfolio",
     "title": "what we've built",
     "sub": "products in production, not mockups.",
     "viewAll": "view all",
@@ -100,7 +100,9 @@
     "widgetSubtitle": "ai assistant",
     "minimize": "minimize",
     "reset": "reset conversation",
-    "collapsedHint": "I'm Creativa Balam's virtual assistant. Can I help with your next project?"
+    "collapsedHint": "I'm Creativa Balam's virtual assistant. Can I help with your next project?",
+    "whatsappLabel": "Message us on WhatsApp",
+    "whatsappText": "Hi, I found you on creativabalam.com.mx and I'd like to tell you about my idea."
   },
   "footer": {
     "tagline": "Balam — software studio.",
