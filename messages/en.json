@@ -5,17 +5,17 @@
   },
   "nav": {
     "home": "home",
-    "apps": "apps",
+    "apps": "portfolio",
     "chat": "chat",
-    "cta": "talk with Balam"
+    "cta": "tell us your idea"
   },
   "hero": {
-    "eyebrow": "software studio // apps & platforms",
-    "line1": "we design and build digital products",
-    "line2": "that last.",
-    "sub": "Balam builds applications, platforms and digital experiences designed to grow with every stage of your project.",
-    "ctaPrimary": "talk with Balam",
-    "ctaSecondary": "view apps",
+    "eyebrow": "independent software studio // Cozumel, Q. Roo., Mx",
+    "line1": "We design and build apps and platforms",
+    "line2": "for businesses.",
+    "sub": "Landing pages, websites, booking systems, platforms and internal tools. SEO, digital advertising, automations and integrations across platforms and AI channels.",
+    "ctaPrimary": "tell us your idea",
+    "ctaSecondary": "view portfolio",
     "promptLabel": "balam@terminal"
   },
   "terminal": {

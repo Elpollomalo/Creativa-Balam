@@ -5,17 +5,17 @@
   },
   "nav": {
     "home": "home",
-    "apps": "apps",
+    "apps": "portafolio",
     "chat": "chat",
-    "cta": "habla con Balam"
+    "cta": "cuéntanos tu idea"
   },
   "hero": {
-    "eyebrow": "estudio de software // apps & plataformas",
-    "line1": "diseñamos y construimos productos digitales",
-    "line2": "que perduran.",
-    "sub": "Balam desarrolla aplicaciones, plataformas y experiencias digitales pensadas para crecer con cada etapa de tu proyecto.",
-    "ctaPrimary": "habla con Balam",
-    "ctaSecondary": "ver apps",
+    "eyebrow": "estudio independiente de software // Cozumel, Q. Roo., Mx",
+    "line1": "Diseñamos y desarrollamos aplicaciones y plataformas",
+    "line2": "para empresas.",
+    "sub": "Landing pages, sitios web, sistemas de reservas, plataformas y herramientas internas. SEO, publicidad digital, automatizaciones e integraciones entre plataformas y canales de IA.",
+    "ctaPrimary": "cuéntanos tu idea",
+    "ctaSecondary": "ver portafolio",
     "promptLabel": "balam@terminal"
   },
   "terminal": {

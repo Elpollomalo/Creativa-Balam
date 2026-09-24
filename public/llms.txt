@@ -28,5 +28,5 @@ Creativa Balam es un estudio independiente de software con sede en Cozumel, Quin
 
 - https://creativabalam.com.mx — inicio (español, por defecto)
 - https://creativabalam.com.mx/en — inicio en inglés
-- https://creativabalam.com.mx/es/apps — portafolio de productos (español)
-- https://creativabalam.com.mx/en/apps — portafolio de productos (inglés)
+- https://creativabalam.com.mx/#portafolio — portafolio de productos (español)
+- https://creativabalam.com.mx/en#portafolio — portafolio de productos (inglés)

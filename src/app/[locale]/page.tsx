@@ -5,7 +5,6 @@ import { OpenChatButton } from "@/components/open-chat-button";
 import { GridBackground } from "@/components/grid-background";
 import { AppCard } from "@/components/app-card";
 import { apps } from "@/lib/apps-data";
-import { ArrowRight } from "lucide-react";
 
 export default async function HomePage({
   params,
@@ -31,7 +30,19 @@ export default async function HomePage({
         <GridBackground />
         <div className="relative mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:py-32">
           <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
-            {hero("eyebrow")}
+            {/* En celular se parte después del "//" (así lo escribió Carlos);
+                si no, el renglón se cortaba en "Q. / Roo.". */}
+            {hero("eyebrow").split(" // ").map((parte, i) => (
+              <span key={i}>
+                {i > 0 && (
+                  <>
+                    {" "}
+                    <br className="sm:hidden" />
+                  </>
+                )}
+                {i === 0 ? `${parte} //` : parte}
+              </span>
+            ))}
           </p>
           <h1 className="text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {hero("line1")}
@@ -43,7 +54,7 @@ export default async function HomePage({
               {hero("line2")}
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
             {hero("sub")}
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -54,7 +65,7 @@ export default async function HomePage({
               {hero("ctaPrimary")}
             </OpenChatButton>
             <Link
-              href="/apps"
+              href="/#portafolio"
               className={buttonVariants({
                 size: "lg",
                 variant: "outline",
@@ -89,25 +100,18 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Apps preview */}
-      <section>
+      {/* Portafolio: vive aquí mismo, con ancla. Antes había una página /apps
+          aparte que repetía exactamente esta sección; Carlos pidió dejar solo
+          el scroll (24 sep 2026) y /apps ahora redirige a este ancla. */}
+      <section id="portafolio" className="scroll-mt-16">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <div className="mb-10 flex items-end justify-between">
-            <div>
-              <p className="mb-2 font-mono text-xs tracking-widest text-muted-foreground">
-                {`// ${appsT("eyebrow")}`}
-              </p>
-              <h2 className="text-2xl font-medium text-foreground sm:text-3xl">
-                {appsT("title")}
-              </h2>
-            </div>
-            <Link
-              href="/apps"
-              className="hidden items-center gap-1 font-mono text-sm text-muted-foreground transition-colors hover:text-terminal-green sm:flex"
-            >
-              {appsT("viewAll")}
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+          <div className="mb-10">
+            <p className="mb-2 font-mono text-xs tracking-widest text-muted-foreground">
+              {`// ${appsT("eyebrow")}`}
+            </p>
+            <h2 className="text-2xl font-medium text-foreground sm:text-3xl">
+              {appsT("title")}
+            </h2>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">

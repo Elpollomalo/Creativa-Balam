@@ -1,8 +1,8 @@
 /**
  * Orden y estado de los proyectos del portafolio.
  *
- * El ORDEN de este arreglo es el que se muestra en la home y en /apps (las dos
- * páginas lo recorren tal cual) — lo definió Carlos el 29 julio 2026:
+ * El ORDEN de este arreglo es el que se muestra en el portafolio de la home
+ * (lo recorre tal cual) — lo definió Carlos el 29 julio 2026:
  * Tourquesa, TourBrain, Ponexo, GNGA.Web3. El 2 agosto 2026 Carlos agregó
  * Blue Reef Divers debajo de TourBrain. El 24 septiembre 2026 se agregó
  * CozuTours al final, y ese mismo día Carlos pidió subirlo, así que ahora va
