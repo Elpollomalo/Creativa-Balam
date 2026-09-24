@@ -100,7 +100,8 @@
     "widgetSubtitle": "ai assistant",
     "minimize": "minimize",
     "reset": "reset conversation",
-    "collapsedHint": "I'm balam's virtual assistant"
+    "collapsedHintWho": "creativa balam's virtual assistant",
+    "collapsedHintHelp": "here for your next project"
   },
   "footer": {
     "tagline": "Balam — software studio.",

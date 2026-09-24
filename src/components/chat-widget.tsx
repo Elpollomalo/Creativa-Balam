@@ -27,6 +27,9 @@ const SEGMENT_PAUSE_MS = 350;
 // Más lento que el boot (8ms): ese texto es un dump que se lee de corrido;
 // este es lo primero que alguien ve del chat, tiene que dar tiempo a leerse.
 const HINT_MS_PER_CHAR = 45;
+const HINT_ERASE_MS_PER_CHAR = 22;
+const HINT_HOLD_MS = 1800;
+const HINT_GAP_MS = 400;
 const CHAT_STORAGE_KEY = "balam:chat-history";
 
 type StoredChat = {
@@ -231,29 +234,31 @@ export function ChatWidget() {
   }, []);
 
   /**
-   * El texto de la barra minimizada ("asistente virtual de balam...") se
-   * escribe letra por letra una sola vez, para que se note que ahí hay un
-   * asistente sin necesidad de abrir el chat. No se reinicia si el panel se
-   * abre y se vuelve a minimizar -- ya se leyó una vez.
+   * El texto de la barra minimizada rota entre dos frases cortas, escritas y
+   * borradas letra por letra mientras el panel sigue cerrado: quién es
+   * ("el asistente virtual de creativa balam") y para qué está ahí ("aquí
+   * para tu próximo proyecto"). Carlos, 24 sep 2026, sobre la primera
+   * versión ("soy el asistente virtual de balam"): "no se parece en nada...
+   * esa frase no sirve... que dice? nada" -- de ahí el nombre completo del
+   * estudio y el para-qué, en dos frases porque juntas no caben en la barra.
    */
   const [collapsedHint, setCollapsedHint] = useState("");
-  const collapsedHintDone = useRef(false);
 
   useEffect(() => {
-    if (collapsedHintDone.current) return;
-    const fullText = t("collapsedHint");
+    const phrases = [t("collapsedHintWho"), t("collapsedHintHelp")];
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
     let cancelled = false;
     const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const wait = (ms: number) =>
+      new Promise<void>((resolve) => {
+        timeouts.push(setTimeout(resolve, ms));
+      });
 
     if (reduceMotion) {
-      const id = setTimeout(() => {
-        setCollapsedHint(fullText);
-        collapsedHintDone.current = true;
-      }, 0);
+      const id = setTimeout(() => setCollapsedHint(phrases[0]), 0);
       timeouts.push(id);
       return () => {
         cancelled = true;
@@ -261,16 +266,28 @@ export function ChatWidget() {
       };
     }
 
-    function typeChar(i: number) {
-      if (cancelled) return;
-      setCollapsedHint(fullText.slice(0, i));
-      if (i >= fullText.length) {
-        collapsedHintDone.current = true;
-        return;
+    async function loop() {
+      let index = 0;
+      while (!cancelled) {
+        const phrase = phrases[index % phrases.length];
+        for (let i = 1; i <= phrase.length; i++) {
+          if (cancelled) return;
+          setCollapsedHint(phrase.slice(0, i));
+          await wait(HINT_MS_PER_CHAR);
+        }
+        if (cancelled) return;
+        await wait(HINT_HOLD_MS);
+        for (let i = phrase.length - 1; i >= 0; i--) {
+          if (cancelled) return;
+          setCollapsedHint(phrase.slice(0, i));
+          await wait(HINT_ERASE_MS_PER_CHAR);
+        }
+        if (cancelled) return;
+        await wait(HINT_GAP_MS);
+        index++;
       }
-      timeouts.push(setTimeout(() => typeChar(i + 1), HINT_MS_PER_CHAR));
     }
-    typeChar(0);
+    loop();
 
     return () => {
       cancelled = true;
