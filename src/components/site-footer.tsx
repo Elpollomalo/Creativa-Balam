@@ -6,7 +6,11 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="pb-16">
+    // pb-16 alcanzaba justo para la barra del chat minimizado (64px), pero
+    // la pestaña de WhatsApp se asoma por encima de esa barra y quedaba
+    // tapando el "© ... todos los derechos reservados" (Carlos, 25 sep 2026,
+    // captura desde el celular). pb-28 deja espacio también para la pestaña.
+    <footer className="pb-28">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2">
           <Logo />
