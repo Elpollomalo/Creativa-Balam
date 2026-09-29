@@ -81,6 +81,11 @@
         "name": "CozuTours",
         "tagline": "tour booking site in Cozumel for a local operator.",
         "detail": "tour catalog, deposit-based bookings via Stripe, emails via Resend. Next.js, Supabase, Stripe."
+      },
+      "cozumelglassart": {
+        "name": "Cozumel Glass Art",
+        "tagline": "glass art gallery in Cozumel, in English and Spanish.",
+        "detail": "catalog of work by artist and category, events with sign-up, admin panel for the gallery. Next.js, Supabase, Resend."
       }
     },
     "visitSite": "visit site",

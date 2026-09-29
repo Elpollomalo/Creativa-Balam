@@ -7,6 +7,8 @@
  * Blue Reef Divers debajo de TourBrain. El 24 septiembre 2026 se agregó
  * CozuTours al final, y ese mismo día Carlos pidió subirlo, así que ahora va
  * primero.
+ * El 29 septiembre 2026 se agregó Cozumel Glass Art (Galería Azul) y va
+ * primero por ser el trabajo más reciente.
  *
  * Tres estados, no dos (antes solo había "live" y "progress"):
  *  - `online`      → ya está en línea y cualquiera puede entrar.
@@ -16,13 +18,19 @@
 export type AppStatus = "online" | "produccion" | "desarrollo";
 
 export type AppEntry = {
-  slug: "tourbrain" | "bluereef" | "gnga" | "ponexo" | "tourquesa" | "cozutours";
+  slug: "tourbrain" | "bluereef" | "gnga" | "ponexo" | "tourquesa" | "cozutours" | "cozumelglassart";
   status: AppStatus;
   stack: string[];
   url: string;
 };
 
 export const apps: AppEntry[] = [
+  {
+    slug: "cozumelglassart",
+    status: "online",
+    stack: ["Next.js", "Supabase", "Resend"],
+    url: "https://cozumelglassart.com",
+  },
   {
     slug: "cozutours",
     status: "online",
