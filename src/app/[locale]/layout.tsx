@@ -108,7 +108,7 @@ export default async function LocaleLayout({
                   addressCountry: "MX",
                 },
                 description:
-                  "Estudio independiente de software en Cozumel, México. Diseñamos y desarrollamos aplicaciones, sitios web, sistemas de reservas y automatizaciones para empresas.",
+                  "Estudio independiente de software en Cozumel, Quintana Roo, México. Diseñamos y desarrollamos aplicaciones y plataformas para empresas: landing pages, sitios web, sistemas de reservas, plataformas y herramientas internas, SEO, publicidad digital, automatizaciones e integraciones entre plataformas y canales de IA.",
               },
               {
                 "@context": "https://schema.org",
