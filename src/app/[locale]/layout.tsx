@@ -108,7 +108,7 @@ export default async function LocaleLayout({
                   addressCountry: "MX",
                 },
                 description:
-                  "Estudio independiente de software en Cozumel, México. Diseña y construye aplicaciones y plataformas digitales: TourBrain, Tourquesa Adventures, Blue Reef Divers, Ponexo, GNGA.Web3.",
+                  "Estudio independiente de software en Cozumel, México. Diseña y construye aplicaciones y plataformas digitales para startups y negocios turísticos del Caribe Mexicano.",
               },
               {
                 "@context": "https://schema.org",

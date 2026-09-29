@@ -9,14 +9,6 @@ Creativa Balam es un estudio independiente de software con sede en Cozumel, Quin
 - Stack principal: Next.js, TypeScript, Tailwind CSS, Supabase, inteligencia artificial aplicada
 - Enfoque en producto (no proyecto): el objetivo es el uso real, no la entrega de un archivo
 
-## Productos en producción
-
-- **TourBrain** (tourbrain.online) — guía de viaje internacional multi-ciudad con catálogo de proveedores turísticos y asistente de IA
-- **Tourquesa Adventures** (tourquesa.com.mx) — agencia de tours de snorkel en Cozumel: El Cielo, Palancar y Colombia
-- **Blue Reef Divers** (bluereefdiversmx.com) — centro de buceo en Cozumel
-- **Ponexo** (ponexo.work) — plataforma de diagnóstico web para agencias digitales
-- **GNGA.Web3** (gnga.tech) — protocolo Web3 de infraestructura financiera descentralizada
-
 ## Contacto
 
 - Sitio: https://creativabalam.com.mx
