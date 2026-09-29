@@ -57,12 +57,11 @@ export const apps: AppEntry[] = [
     stack: ["Next.js", "Tailwind", "PayPal"],
     url: "https://www.bluereefdiversmx.com",
   },
-  {
-    slug: "ponexo",
-    status: "produccion",
-    stack: ["Next.js", "Supabase", "n8n"],
-    url: "https://www.ponexo.work",
-  },
+  // Ponexo quitado del portafolio "por el momento" (Carlos, 29 sep 2026).
+  // Para regresarlo, pegar este bloque donde debe ir en el arreglo (sus textos
+  // siguen en messages/*.json):
+  //   { slug: "ponexo", status: "produccion",
+  //     stack: ["Next.js", "Supabase", "n8n"], url: "https://www.ponexo.work" },
   {
     slug: "gnga",
     status: "desarrollo",
