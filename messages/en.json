@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Creativa Balam — software studio in Cozumel, Mexico",
-    "description": "Software studio in Cozumel, Mexico. We build apps, websites, booking systems, internal tools, SEO, digital advertising and automations for businesses."
+    "description": "Software studio in Cozumel, Mexico. We design and build apps, websites, booking systems, SEO, digital advertising and automations for businesses."
   },
   "nav": {
     "home": "home",
@@ -13,7 +13,7 @@
     "eyebrow": "independent software studio // Cozumel, Q. Roo., Mx",
     "line1": "We design and build apps and platforms",
     "line2": "for businesses.",
-    "sub": "Landing pages, websites, booking systems, platforms and internal tools. SEO, digital advertising, automations and integrations across platforms and digital channels.",
+    "sub": "Landing pages, websites, booking systems, platforms and internal tools. SEO, digital advertising, automations and integrations across platforms and AI channels.",
     "ctaPrimary": "tell us your idea",
     "ctaSecondary": "view portfolio",
     "promptLabel": "balam@terminal"
@@ -22,7 +22,7 @@
     "whoami": "whoami",
     "whoamiOut": "independent software studio — Cozumel, Mexico",
     "stack": "cat stack.txt",
-    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · payments (Stripe, PayPal) · automation (n8n, Dify) · bots and Web3",
+    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · payments (Stripe, PayPal) · AI automation (n8n, Dify) · bots and Web3",
     "status": "cat status.txt",
     "statusOut": "open to talk about your next product and project, tell us what you have in mind?"
   },

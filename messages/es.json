@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Creativa Balam — estudio de software en Cozumel, México",
-    "description": "Estudio de software en Cozumel, México. Desarrollamos apps, plataformas, sitios web, reservas en línea, SEO, publicidad digital y automatizaciones para empresas."
+    "description": "Estudio de software en Cozumel, México. Desarrollamos apps, sitios web, sistemas de reservas, SEO, publicidad digital y automatizaciones para empresas."
   },
   "nav": {
     "home": "home",
@@ -13,7 +13,7 @@
     "eyebrow": "estudio independiente de software // Cozumel, Q. Roo., Mx",
     "line1": "Diseñamos y desarrollamos aplicaciones y plataformas",
     "line2": "para empresas.",
-    "sub": "Landing pages, sitios web, sistemas de reservas, plataformas y herramientas internas. SEO, publicidad digital, automatizaciones e integraciones entre plataformas y canales digitales.",
+    "sub": "Landing pages, sitios web, sistemas de reservas, plataformas y herramientas internas. SEO, publicidad digital, automatizaciones e integraciones entre plataformas y canales de IA.",
     "ctaPrimary": "cuéntanos tu idea",
     "ctaSecondary": "ver portafolio",
     "promptLabel": "balam@terminal"
@@ -22,7 +22,7 @@
     "whoami": "whoami",
     "whoamiOut": "estudio independiente de software — Cozumel, México",
     "stack": "cat stack.txt",
-    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · pagos (Stripe, PayPal) · automatización (n8n, Dify) · bots y Web3",
+    "stackOut": "Next.js · TypeScript · Tailwind · Supabase · pagos (Stripe, PayPal) · automatización con IA (n8n, Dify) · bots y Web3",
     "status": "cat status.txt",
     "statusOut": "disponible para conversar sobre tu próximo producto y proyecto, cuéntanos qué tienes en mente?"
   },

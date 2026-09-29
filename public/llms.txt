@@ -8,8 +8,8 @@ Creativa Balam es un estudio independiente de software con sede en Cozumel, Quin
 - Sistemas de reservas
 - Plataformas y herramientas internas
 - SEO y publicidad digital
-- Automatizaciones e integraciones entre plataformas y canales digitales
-- Stack principal: Next.js, TypeScript, Tailwind CSS, Supabase, pagos (Stripe, PayPal), automatización (n8n, Dify), bots y Web3
+- Automatizaciones e integraciones entre plataformas y canales de IA
+- Stack principal: Next.js, TypeScript, Tailwind CSS, Supabase, pagos (Stripe, PayPal), automatización con IA (n8n, Dify), bots y Web3
 
 ## Principios
 
