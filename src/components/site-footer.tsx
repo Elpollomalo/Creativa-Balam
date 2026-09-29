@@ -1,6 +1,12 @@
 import { useTranslations } from "next-intl";
 import { Logo } from "@/components/logo";
 
+const redes = [
+  { nombre: "instagram", url: "https://www.instagram.com/creativa.balam" },
+  { nombre: "facebook", url: "https://www.facebook.com/share/1DDmghk3aK/" },
+  { nombre: "tiktok", url: "https://www.tiktok.com/@balam.agencia.creativa" },
+];
+
 export function SiteFooter() {
   const t = useTranslations("footer");
   const year = new Date().getFullYear();
@@ -41,6 +47,19 @@ export function SiteFooter() {
           >
             {t("email")}
           </a>
+          <p className="flex gap-4 sm:justify-end">
+            {redes.map((red) => (
+              <a
+                key={red.nombre}
+                href={red.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="-my-2 py-2 transition-colors hover:text-terminal-green"
+              >
+                {red.nombre}
+              </a>
+            ))}
+          </p>
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-4 py-4 font-mono text-[11px] text-muted-foreground sm:px-6">
