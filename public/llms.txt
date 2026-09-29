@@ -1,13 +1,21 @@
 # Creativa Balam — estudio independiente de software
 
-Creativa Balam es un estudio independiente de software con sede en Cozumel, Quintana Roo, México. Diseña y construye aplicaciones y plataformas digitales que quedan corriendo en producción real, con uso real. No es una agencia de publicidad ni una consultora: entrega productos funcionales.
+Creativa Balam es un estudio independiente de software con sede en Cozumel, Quintana Roo, México. Diseña y desarrolla aplicaciones y plataformas para empresas.
 
 ## Qué hace
 
-- Diseño y desarrollo de aplicaciones web y plataformas digitales
-- Especialidad en startups y negocios del sector turístico en el Caribe Mexicano
-- Stack principal: Next.js, TypeScript, Tailwind CSS, Supabase, inteligencia artificial aplicada
-- Enfoque en producto (no proyecto): el objetivo es el uso real, no la entrega de un archivo
+- Landing pages y sitios web
+- Sistemas de reservas
+- Plataformas y herramientas internas
+- SEO y publicidad digital
+- Automatizaciones e integraciones entre plataformas y canales de IA
+- Stack principal: Next.js, TypeScript, Tailwind CSS, Supabase, pagos (Stripe, PayPal), automatización con IA (n8n, Dify), bots y Web3
+
+## Principios
+
+- Claridad: la mejor tecnología es la que se siente simple
+- Calidad: cada detalle suma a la experiencia
+- Evolución: se construye pensando en el largo plazo
 
 ## Contacto
 
