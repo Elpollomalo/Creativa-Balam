@@ -54,9 +54,18 @@ export async function POST(request: Request) {
       conversation_id?: string;
     };
 
+    // El modelo de Dify (DeepSeek) manda su razonamiento dentro de
+    // <think>...</think>, precedido por un comentario <!--dify-...-->. Es
+    // pensamiento interno, no respuesta: no debe llegar al visitante.
+    const answer = (data.answer ?? "")
+      .replace(/<think>[\s\S]*?<\/think>/gi, "")
+      .replace(/<think>[\s\S]*$/i, "")
+      .replace(/<!--dify-[^>]*-->/gi, "")
+      .trim();
+
     return NextResponse.json({
       configured: true,
-      answer: data.answer ?? "",
+      answer,
       conversationId: data.conversation_id,
     });
   } catch {
