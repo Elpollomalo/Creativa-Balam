@@ -37,7 +37,7 @@ export const VISUALES: Record<ServicioSlug, Visual> = {
     },
   },
   automatizaciones: {
-    hero: { src: "/servicios/tourbrain-celular.webp", ancho: 739, alto: 1363, tipo: "celular", pie: "TourBrain" },
+    hero: { src: "/servicios/tourbrain-celular.webp", ancho: 738, alto: 1355, tipo: "celular", pie: "TourBrain" },
     caso: { nombre: "TourBrain", url: "https://www.tourbrain.online", dominio: "tourbrain.online" },
   },
 };
