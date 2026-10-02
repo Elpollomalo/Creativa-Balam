@@ -7,7 +7,8 @@
     "home": "home",
     "apps": "portafolio",
     "chat": "chat",
-    "cta": "cuéntanos tu idea"
+    "cta": "cuéntanos tu idea",
+    "services": "servicios"
   },
   "hero": {
     "eyebrow": "estudio independiente de software // Cozumel, Q. Roo., Mx",
@@ -124,5 +125,252 @@
     "code": "404",
     "message": "ruta no encontrada",
     "back": "volver a home"
+  },
+  "home": {
+    "services": {
+      "eyebrow": "servicios",
+      "title": "lo que hacemos",
+      "sub": "tres formas de trabajar con nosotros. cada una tiene su propia página, con casos y respuestas a las dudas más comunes.",
+      "more": "ver el servicio"
+    }
+  },
+  "services": {
+    "common": {
+      "eyebrow": "servicio",
+      "breadcrumbHome": "inicio",
+      "breadcrumbServices": "servicios",
+      "ctaChat": "cuéntanos tu idea",
+      "ctaWhatsapp": "escríbenos por whatsapp",
+      "includesEyebrow": "qué incluye",
+      "processEyebrow": "cómo trabajamos",
+      "processTitle": "de la idea a la entrega, en cuatro pasos",
+      "caseEyebrow": "un caso real",
+      "caseBuilt": "lo que construimos",
+      "caseToday": "lo que hace hoy",
+      "faqEyebrow": "preguntas frecuentes",
+      "faqTitle": "lo que nos preguntan más",
+      "othersEyebrow": "otros servicios",
+      "finalTitle": "¿hablamos de tu proyecto?",
+      "finalBody": "Cuéntanos tu idea y te respondemos por WhatsApp o por correo. Sin compromiso y sin tecnicismos.",
+      "process": [
+        {
+          "title": "conversamos",
+          "body": "Nos cuentas qué hace tu negocio y qué quieres lograr. Sin tecnicismos."
+        },
+        {
+          "title": "planeamos",
+          "body": "Te proponemos el alcance por etapas, para que sepas qué se hace primero y qué sigue."
+        },
+        {
+          "title": "construimos",
+          "body": "Desarrollamos y te mostramos avances durante el camino, no solo al final."
+        },
+        {
+          "title": "entregamos y acompañamos",
+          "body": "Lo publicamos, te explicamos cómo usarlo y seguimos disponibles para ajustes y mejoras."
+        }
+      ],
+      "whatsappText": "Hola, vi su página de {servicio} y quiero información."
+    },
+    "items": {
+      "software-a-medida": {
+        "name": "software a medida",
+        "short": "plataformas, paneles de administración y herramientas internas hechas para tu forma de trabajar.",
+        "metaTitle": "Desarrollo de software a medida | Creativa Balam",
+        "metaDescription": "Desarrollamos software a medida para empresas: plataformas, paneles de administración y herramientas internas hechas para cómo trabajas. Estudio en Cozumel, México.",
+        "h1": "Desarrollo de software a medida para tu empresa",
+        "lead": "Somos un estudio en Cozumel que diseña y desarrolla software a la medida de cada empresa: plataformas, paneles y herramientas internas que se adaptan a cómo trabajas, no al revés. Atendemos negocios de todo México.",
+        "includesTitle": "software hecho a tu medida, de principio a fin",
+        "includes": [
+          {
+            "title": "plataformas y aplicaciones web.",
+            "body": "Sistemas completos con acceso para tus clientes, para tu equipo o para ambos."
+          },
+          {
+            "title": "paneles de administración.",
+            "body": "Un lugar propio donde tu equipo carga, edita y consulta todo sin depender de nadie."
+          },
+          {
+            "title": "herramientas internas.",
+            "body": "Lo que hoy llevas en hojas de cálculo y mensajes, convertido en un sistema ordenado."
+          },
+          {
+            "title": "integraciones.",
+            "body": "Conectamos tu sistema con pagos, correo, calendarios y las plataformas que ya usas."
+          },
+          {
+            "title": "diseño pensado para el uso diario.",
+            "body": "Pantallas claras, rápidas y listas para usarse desde el celular."
+          },
+          {
+            "title": "acompañamiento después de la entrega.",
+            "body": "Lo publicamos, te enseñamos a usarlo y seguimos mejorándolo contigo."
+          }
+        ],
+        "case": {
+          "client": "una galería de arte en Cozumel",
+          "built": "Un sitio en español e inglés con catálogo de obra por artista y categoría, eventos con registro y un panel de administración propio.",
+          "today": "La galería organiza su obra y sus eventos desde su propio panel, y quien la visita la encuentra en dos idiomas."
+        },
+        "faq": [
+          {
+            "q": "¿Qué significa software a medida?",
+            "a": "Que se construye desde cero para tu negocio, con las funciones que necesitas y ninguna que no. A diferencia de un programa genérico o una plantilla, se adapta a tu forma de trabajar."
+          },
+          {
+            "q": "¿Cuándo conviene hacer software a medida y no usar uno ya hecho?",
+            "a": "Cuando tu proceso es particular, cuando las herramientas genéricas te obligan a trabajar con hojas de cálculo y mensajes, o cuando necesitas que varias cosas se conecten. Si una herramienta que ya existe resuelve tu caso, te lo decimos."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Depende del alcance. No manejamos precios fijos porque cada proyecto es distinto: nos cuentas tu idea, la revisamos y te damos una propuesta clara, por etapas."
+          },
+          {
+            "q": "¿Cuánto tarda?",
+            "a": "Depende de lo que se necesite. Antes de empezar definimos las etapas y te decimos qué se entrega en cada una."
+          },
+          {
+            "q": "¿Trabajan con empresas fuera de Cozumel?",
+            "a": "Sí. Estamos en Cozumel, pero trabajamos a distancia con negocios de todo México."
+          },
+          {
+            "q": "¿Qué pasa después de la entrega?",
+            "a": "Te explicamos cómo usarlo y seguimos disponibles para ajustes y mejoras, para que el sistema crezca con tu negocio."
+          }
+        ]
+      },
+      "sistemas-de-reservas": {
+        "name": "páginas web con reservas",
+        "short": "tu cliente reserva y paga su depósito en línea, a cualquier hora, sin intermediarios.",
+        "metaTitle": "Páginas web con sistema de reservas | Creativa Balam",
+        "metaDescription": "Páginas web con sistema de reservas en línea: tus clientes reservan y pagan su depósito a cualquier hora. Para tours, actividades y negocios de servicios. Estudio en Cozumel.",
+        "h1": "Páginas web con sistema de reservas en línea",
+        "lead": "Somos un estudio en Cozumel que construye páginas web donde tus clientes reservan y pagan su depósito en línea, a cualquier hora y sin intermediarios. Pensadas para tours, actividades y negocios de servicios.",
+        "includesTitle": "todo lo que necesita una página que vende reservas",
+        "includes": [
+          {
+            "title": "catálogo de servicios o tours.",
+            "body": "Cada actividad con sus fotos, su descripción y sus horarios, bien presentada."
+          },
+          {
+            "title": "reserva en línea.",
+            "body": "Tu cliente elige su actividad y su fecha, y reserva en pocos pasos desde el celular."
+          },
+          {
+            "title": "depósito o pago en línea.",
+            "body": "Cobras un anticipo o el total en el momento de la reserva."
+          },
+          {
+            "title": "correos de confirmación.",
+            "body": "Tu cliente y tú reciben el aviso al instante, sin mandar nada a mano."
+          },
+          {
+            "title": "panel para administrar.",
+            "body": "Revisas las reservas y editas tu catálogo tú mismo, sin pedirle nada a nadie."
+          },
+          {
+            "title": "español e inglés.",
+            "body": "Tu sitio atiende al turista en su propio idioma."
+          }
+        ],
+        "case": {
+          "client": "una operadora de tours en Cozumel",
+          "built": "Un sitio con catálogo de tours, reserva con depósito en línea y correos de confirmación.",
+          "today": "Sus clientes reservan y pagan el depósito desde la misma página, y la confirmación les llega por correo sin que nadie la mande a mano."
+        },
+        "faq": [
+          {
+            "q": "¿En qué se diferencia de una página web normal?",
+            "a": "Una página normal informa. Esta además recibe reservas y cobros, y avisa a tu equipo, para que vender no dependa de contestar mensajes a todas horas."
+          },
+          {
+            "q": "¿Puedo cobrar un depósito o el pago completo?",
+            "a": "Sí. Se puede cobrar un anticipo, el total o solo registrar la reserva, según cómo trabaje tu negocio."
+          },
+          {
+            "q": "¿Mis clientes pueden reservar desde el celular?",
+            "a": "Sí. Empezamos el diseño por el celular, que es desde donde reserva la mayoría."
+          },
+          {
+            "q": "¿Funciona en español e inglés?",
+            "a": "Sí. Podemos hacer el sitio en los dos idiomas, ideal si recibes turismo."
+          },
+          {
+            "q": "¿Puedo administrar las reservas yo mismo?",
+            "a": "Sí. Incluye un panel donde ves las reservas y editas tu catálogo cuando lo necesites."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Depende del alcance. No manejamos precios fijos porque cada negocio reserva distinto: nos cuentas cómo trabajas y te damos una propuesta clara."
+          }
+        ]
+      },
+      "automatizaciones": {
+        "name": "automatizaciones",
+        "short": "avisos, seguimiento de clientes y tareas repetitivas que se hacen solas.",
+        "metaTitle": "Automatizaciones para empresas | Creativa Balam",
+        "metaDescription": "Automatizamos las tareas repetitivas de tu empresa: avisos, seguimiento de clientes, captura de datos y reportes. Conectamos tus plataformas. Estudio en Cozumel, México.",
+        "h1": "Automatizaciones para quitarte el trabajo repetitivo",
+        "lead": "Somos un estudio en Cozumel que automatiza las tareas repetitivas de tu empresa: avisos, correos, seguimiento de clientes, captura de datos y reportes. Conectamos las plataformas que ya usas para que la información fluya sola y tu equipo se dedique a lo importante.",
+        "includesTitle": "lo que podemos automatizar en tu negocio",
+        "includes": [
+          {
+            "title": "avisos y notificaciones.",
+            "body": "Te llega el aviso en el momento en que pasa algo: una reserva, un contacto, un pago."
+          },
+          {
+            "title": "seguimiento de clientes.",
+            "body": "Cada contacto se registra y recibe su seguimiento a tiempo, sin depender de que alguien se acuerde."
+          },
+          {
+            "title": "atención automática.",
+            "body": "Chats y mensajes que resuelven las preguntas frecuentes a cualquier hora y pasan a una persona cuando hace falta."
+          },
+          {
+            "title": "conexión entre plataformas.",
+            "body": "Tu correo, tu WhatsApp, tus hojas de cálculo y tu sistema de reservas o tienda, hablando entre sí."
+          },
+          {
+            "title": "reportes automáticos.",
+            "body": "La información de tu negocio reunida y enviada sola, lista para leerse."
+          },
+          {
+            "title": "ajustes continuos.",
+            "body": "Lo que automatizamos lo revisamos y lo afinamos contigo conforme tu negocio cambia."
+          }
+        ],
+        "case": {
+          "client": "nuestro propio estudio",
+          "built": "Un asistente en el chat de nuestro sitio que atiende a quien nos visita, y un aviso inmediato cada vez que alguien nos deja sus datos.",
+          "today": "Quien nos escribe recibe respuesta en el momento, y ningún contacto se pierde entre mensajes."
+        },
+        "faq": [
+          {
+            "q": "¿Qué es una automatización?",
+            "a": "Es hacer que una tarea que hoy haces a mano ocurra sola, por ejemplo mandar un correo de confirmación, avisarte de un contacto nuevo o llevar un registro de tus clientes."
+          },
+          {
+            "q": "¿Qué tareas conviene automatizar primero?",
+            "a": "Las que se repiten todos los días, consumen tiempo y siguen siempre las mismas reglas. Revisamos contigo tu forma de trabajar y te decimos por dónde empezar."
+          },
+          {
+            "q": "¿Necesito cambiar las herramientas que ya uso?",
+            "a": "Casi nunca. Conectamos lo que ya tienes: correo, WhatsApp, hojas de cálculo, tu sistema de reservas o tu tienda."
+          },
+          {
+            "q": "¿Qué pasa si algo falla?",
+            "a": "Lo que automatizamos lo revisamos y lo ajustamos contigo, para que siga funcionando cuando tu negocio cambie."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Depende de qué y cuánto se automatice. No manejamos precios fijos: nos cuentas qué te quita tiempo y te damos una propuesta clara."
+          },
+          {
+            "q": "¿Trabajan con empresas fuera de Cozumel?",
+            "a": "Sí. Estamos en Cozumel, pero trabajamos a distancia con negocios de todo México."
+          }
+        ]
+      }
+    }
   }
 }

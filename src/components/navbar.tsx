@@ -28,6 +28,7 @@ export function Navbar() {
 
   const links = [
     { href: "/", label: t("home") },
+    { href: "/#servicios", label: t("services") },
     { href: "/#portafolio", label: t("apps") },
   ] as const;
 

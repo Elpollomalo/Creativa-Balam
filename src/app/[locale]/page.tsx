@@ -5,6 +5,8 @@ import { OpenChatButton } from "@/components/open-chat-button";
 import { GridBackground } from "@/components/grid-background";
 import { AppCard } from "@/components/app-card";
 import { apps } from "@/lib/apps-data";
+import { SERVICIOS } from "@/lib/servicios";
+import { ArrowUpRight } from "lucide-react";
 
 export default async function HomePage({
   params,
@@ -17,6 +19,8 @@ export default async function HomePage({
   const hero = await getTranslations("hero");
   const principles = await getTranslations("principles");
   const appsT = await getTranslations("apps");
+  const homeT = await getTranslations("home.services");
+  const serviciosT = await getTranslations("services.items");
 
   const principleItems = [0, 1, 2].map((i) => ({
     title: principles(`items.${i}.title`),
@@ -95,6 +99,45 @@ export default async function HomePage({
                   {item.body}
                 </p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Servicios: enlazan a una página propia por servicio. */}
+      <section id="servicios" className="scroll-mt-16">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-2 font-mono text-xs tracking-widest text-muted-foreground">
+              {`// ${homeT("eyebrow")}`}
+            </p>
+            <h2 className="text-2xl font-medium text-foreground sm:text-3xl">
+              {homeT("title")}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {homeT("sub")}
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {SERVICIOS.map((slug) => (
+              <Link
+                key={slug}
+                href={`/servicios/${slug}`}
+                className="group flex flex-col rounded-lg border border-border bg-card/60 p-6 transition-colors hover:border-terminal-green/40"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="font-mono text-lg font-medium text-foreground">
+                    {serviciosT(`${slug}.name`)}
+                  </h3>
+                  <ArrowUpRight className="size-4 text-muted-foreground transition-colors group-hover:text-terminal-green" />
+                </div>
+                <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                  {serviciosT(`${slug}.short`)}
+                </p>
+                <span className="mt-auto font-mono text-xs text-terminal-green">
+                  {homeT("more")} →
+                </span>
+              </Link>
             ))}
           </div>
         </div>

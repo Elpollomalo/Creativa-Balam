@@ -7,7 +7,8 @@
     "home": "home",
     "apps": "portfolio",
     "chat": "chat",
-    "cta": "tell us your idea"
+    "cta": "tell us your idea",
+    "services": "services"
   },
   "hero": {
     "eyebrow": "independent software studio // Cozumel, Q. Roo., Mx",
@@ -124,5 +125,252 @@
     "code": "404",
     "message": "route not found",
     "back": "back to home"
+  },
+  "home": {
+    "services": {
+      "eyebrow": "services",
+      "title": "what we do",
+      "sub": "three ways to work with us. each one has its own page, with a real case and answers to the most common questions.",
+      "more": "see the service"
+    }
+  },
+  "services": {
+    "common": {
+      "eyebrow": "service",
+      "breadcrumbHome": "home",
+      "breadcrumbServices": "services",
+      "ctaChat": "tell us your idea",
+      "ctaWhatsapp": "message us on whatsapp",
+      "includesEyebrow": "what's included",
+      "processEyebrow": "how we work",
+      "processTitle": "from idea to delivery, in four steps",
+      "caseEyebrow": "a real case",
+      "caseBuilt": "what we built",
+      "caseToday": "what it does today",
+      "faqEyebrow": "frequently asked questions",
+      "faqTitle": "what people ask us most",
+      "othersEyebrow": "other services",
+      "finalTitle": "shall we talk about your project?",
+      "finalBody": "Tell us your idea and we'll reply by WhatsApp or email. No commitment, no jargon.",
+      "process": [
+        {
+          "title": "we talk",
+          "body": "You tell us what your business does and what you want to achieve. No jargon."
+        },
+        {
+          "title": "we plan",
+          "body": "We propose the scope in stages, so you know what gets done first and what comes next."
+        },
+        {
+          "title": "we build",
+          "body": "We develop it and show you progress along the way, not just at the end."
+        },
+        {
+          "title": "we deliver and stay with you",
+          "body": "We launch it, show you how to use it, and stay available for adjustments and improvements."
+        }
+      ],
+      "whatsappText": "Hi, I saw your {servicio} page and I'd like more information."
+    },
+    "items": {
+      "software-a-medida": {
+        "name": "custom software",
+        "short": "platforms, admin panels and internal tools built around the way you work.",
+        "metaTitle": "Custom Software Development | Creativa Balam",
+        "metaDescription": "We build custom software for businesses: platforms, admin panels and internal tools made around how you work. Software studio in Cozumel, Mexico.",
+        "h1": "Custom software development for your business",
+        "lead": "We are a studio in Cozumel that designs and builds software tailored to each business: platforms, panels and internal tools that adapt to how you work, not the other way around. We work with businesses across Mexico.",
+        "includesTitle": "software built to fit, from start to finish",
+        "includes": [
+          {
+            "title": "platforms and web apps.",
+            "body": "Complete systems with access for your customers, your team, or both."
+          },
+          {
+            "title": "admin panels.",
+            "body": "A place of your own where your team uploads, edits and checks everything without depending on anyone."
+          },
+          {
+            "title": "internal tools.",
+            "body": "What you now keep in spreadsheets and messages, turned into an organized system."
+          },
+          {
+            "title": "integrations.",
+            "body": "We connect your system with payments, email, calendars and the platforms you already use."
+          },
+          {
+            "title": "design for everyday use.",
+            "body": "Clear, fast screens that work well from a phone."
+          },
+          {
+            "title": "support after delivery.",
+            "body": "We launch it, teach you to use it, and keep improving it with you."
+          }
+        ],
+        "case": {
+          "client": "an art gallery in Cozumel",
+          "built": "A bilingual site with a catalog of work by artist and category, events with registration, and its own admin panel.",
+          "today": "The gallery manages its work and its events from its own panel, and visitors find it in two languages."
+        },
+        "faq": [
+          {
+            "q": "What does custom software mean?",
+            "a": "It is built from scratch for your business, with the features you need and none you don't. Unlike generic software or a template, it adapts to the way you work."
+          },
+          {
+            "q": "When does custom software make sense instead of an existing tool?",
+            "a": "When your process is particular, when generic tools force you into spreadsheets and messages, or when several things need to connect. If an existing tool solves your case, we'll tell you."
+          },
+          {
+            "q": "How much does it cost?",
+            "a": "It depends on the scope. We don't use fixed prices because every project is different: you tell us your idea, we review it, and we give you a clear proposal in stages."
+          },
+          {
+            "q": "How long does it take?",
+            "a": "It depends on what is needed. Before we start we define the stages and tell you what is delivered in each one."
+          },
+          {
+            "q": "Do you work with businesses outside Cozumel?",
+            "a": "Yes. We are based in Cozumel, but we work remotely with businesses across Mexico."
+          },
+          {
+            "q": "What happens after delivery?",
+            "a": "We show you how to use it and stay available for adjustments and improvements, so the system grows with your business."
+          }
+        ]
+      },
+      "sistemas-de-reservas": {
+        "name": "websites with bookings",
+        "short": "your customer books and pays a deposit online, at any hour, with no middlemen.",
+        "metaTitle": "Websites with Online Booking Systems | Creativa Balam",
+        "metaDescription": "Websites with an online booking system: your customers book and pay a deposit at any hour. For tours, activities and service businesses. Studio in Cozumel, Mexico.",
+        "h1": "Websites with an online booking system",
+        "lead": "We are a studio in Cozumel that builds websites where your customers book and pay a deposit online, at any hour and with no middlemen. Designed for tours, activities and service businesses.",
+        "includesTitle": "everything a website that sells bookings needs",
+        "includes": [
+          {
+            "title": "service or tour catalog.",
+            "body": "Each activity with its photos, description and schedule, well presented."
+          },
+          {
+            "title": "online booking.",
+            "body": "Your customer picks an activity and a date, and books in a few steps from their phone."
+          },
+          {
+            "title": "online deposit or payment.",
+            "body": "You charge a deposit or the full amount at the moment of booking."
+          },
+          {
+            "title": "confirmation emails.",
+            "body": "Your customer and you get notified instantly, with nothing sent by hand."
+          },
+          {
+            "title": "admin panel.",
+            "body": "You check bookings and edit your catalog yourself, without asking anyone."
+          },
+          {
+            "title": "english and spanish.",
+            "body": "Your site serves travelers in their own language."
+          }
+        ],
+        "case": {
+          "client": "a tour operator in Cozumel",
+          "built": "A site with a tour catalog, online booking with deposit, and confirmation emails.",
+          "today": "Its customers book and pay the deposit from the same page, and the confirmation reaches them by email without anyone sending it by hand."
+        },
+        "faq": [
+          {
+            "q": "How is it different from a regular website?",
+            "a": "A regular website informs. This one also takes bookings and payments and notifies your team, so selling doesn't depend on answering messages at all hours."
+          },
+          {
+            "q": "Can I charge a deposit or the full payment?",
+            "a": "Yes. You can charge a deposit, the full amount, or just register the booking, depending on how your business works."
+          },
+          {
+            "q": "Can my customers book from their phone?",
+            "a": "Yes. We start the design from the phone, since that's where most people book."
+          },
+          {
+            "q": "Does it work in English and Spanish?",
+            "a": "Yes. We can build the site in both languages, ideal if you serve tourists."
+          },
+          {
+            "q": "Can I manage bookings myself?",
+            "a": "Yes. It includes a panel where you see bookings and edit your catalog whenever you need."
+          },
+          {
+            "q": "How much does it cost?",
+            "a": "It depends on the scope. We don't use fixed prices because every business takes bookings differently: you tell us how you work and we give you a clear proposal."
+          }
+        ]
+      },
+      "automatizaciones": {
+        "name": "automation",
+        "short": "alerts, customer follow-up and repetitive tasks that run on their own.",
+        "metaTitle": "Business Automation | Creativa Balam",
+        "metaDescription": "We automate your business's repetitive tasks: alerts, customer follow-up, data entry and reports. We connect your platforms. Software studio in Cozumel, Mexico.",
+        "h1": "Automation to take repetitive work off your plate",
+        "lead": "We are a studio in Cozumel that automates your business's repetitive tasks: alerts, emails, customer follow-up, data entry and reports. We connect the platforms you already use so information flows on its own and your team can focus on what matters.",
+        "includesTitle": "what we can automate in your business",
+        "includes": [
+          {
+            "title": "alerts and notifications.",
+            "body": "You are notified the moment something happens: a booking, a new contact, a payment."
+          },
+          {
+            "title": "customer follow-up.",
+            "body": "Every contact is recorded and followed up on time, without relying on someone to remember."
+          },
+          {
+            "title": "automatic replies.",
+            "body": "Chats and messages that answer common questions at any hour and hand over to a person when needed."
+          },
+          {
+            "title": "connected platforms.",
+            "body": "Your email, your WhatsApp, your spreadsheets and your booking system or store, talking to each other."
+          },
+          {
+            "title": "automatic reports.",
+            "body": "Your business information gathered and sent on its own, ready to read."
+          },
+          {
+            "title": "ongoing adjustments.",
+            "body": "We review what we automate and fine-tune it with you as your business changes."
+          }
+        ],
+        "case": {
+          "client": "our own studio",
+          "built": "An assistant in our site's chat that answers visitors, and an immediate alert whenever someone leaves us their details.",
+          "today": "People who write to us get a reply right away, and no contact gets lost among messages."
+        },
+        "faq": [
+          {
+            "q": "What is automation?",
+            "a": "It means making a task you now do by hand happen on its own, for example sending a confirmation email, alerting you to a new contact, or keeping a record of your customers."
+          },
+          {
+            "q": "Which tasks should I automate first?",
+            "a": "The ones that repeat every day, take time and always follow the same rules. We review how you work with you and tell you where to start."
+          },
+          {
+            "q": "Do I need to change the tools I already use?",
+            "a": "Almost never. We connect what you already have: email, WhatsApp, spreadsheets, your booking system or your store."
+          },
+          {
+            "q": "What happens if something fails?",
+            "a": "We review what we automate and adjust it with you, so it keeps working as your business changes."
+          },
+          {
+            "q": "How much does it cost?",
+            "a": "It depends on what and how much is automated. We don't use fixed prices: you tell us what eats your time and we give you a clear proposal."
+          },
+          {
+            "q": "Do you work with businesses outside Cozumel?",
+            "a": "Yes. We are based in Cozumel, but we work remotely with businesses across Mexico."
+          }
+        ]
+      }
+    }
   }
 }
