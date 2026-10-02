@@ -32,7 +32,7 @@ export default async function HomePage({
       {/* Hero */}
       <section className="relative overflow-hidden">
         <GridBackground />
-        <div className="relative mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:py-32">
+        <div className="relative mx-auto max-w-6xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:py-32">
           <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
             {/* En celular se parte después del "//" (así lo escribió Carlos);
                 si no, el renglón se cortaba en "Q. / Roo.". */}
@@ -48,7 +48,7 @@ export default async function HomePage({
               </span>
             ))}
           </p>
-          <h1 className="text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mx-auto max-w-5xl text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {hero("line1")}
             <br />
             {/* /90 en vez del verde puro: Carlos lo sintió muy brilloso y
