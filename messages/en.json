@@ -144,7 +144,7 @@
       "includesEyebrow": "what's included",
       "processEyebrow": "how we work",
       "processTitle": "from idea to delivery, in four steps",
-      "caseEyebrow": "a real case",
+      "caseEyebrow": "a real project",
       "caseBuilt": "what we built",
       "caseToday": "what it does today",
       "faqEyebrow": "frequently asked questions",
@@ -170,7 +170,8 @@
           "body": "We launch it, show you how to use it, and stay available for adjustments and improvements."
         }
       ],
-      "whatsappText": "Hi, I saw your {servicio} page and I'd like more information."
+      "whatsappText": "Hi, I saw your {servicio} page and I'd like more information.",
+      "caseVisit": "visit the site"
     },
     "items": {
       "software-a-medida": {
@@ -208,9 +209,9 @@
           }
         ],
         "case": {
-          "client": "an art gallery in Cozumel",
-          "built": "A bilingual site with a catalog of work by artist and category, events with registration, and its own admin panel.",
-          "today": "The gallery manages its work and its events from its own panel, and visitors find it in two languages."
+          "built": "A bilingual site with a catalog of work by artist and category, events with registration, and an admin panel of its own.",
+          "today": "The gallery manages its work and its events from its own panel, and visitors find it in two languages.",
+          "imageAlt": "Home page of Galería Azul, an art gallery in Cozumel"
         },
         "faq": [
           {
@@ -237,7 +238,8 @@
             "q": "What happens after delivery?",
             "a": "We show you how to use it and stay available for adjustments and improvements, so the system grows with your business."
           }
-        ]
+        ],
+        "heroAlt": "Sites and platforms built by Creativa Balam, shown on a desktop, a laptop and a phone"
       },
       "sistemas-de-reservas": {
         "name": "websites with bookings",
@@ -274,9 +276,9 @@
           }
         ],
         "case": {
-          "client": "a tour operator in Cozumel",
-          "built": "A site with a tour catalog, online booking with deposit, and confirmation emails.",
-          "today": "Its customers book and pay the deposit from the same page, and the confirmation reaches them by email without anyone sending it by hand."
+          "built": "A site with a tour catalog, online booking with deposit and confirmation emails for a local tour operator in Cozumel.",
+          "today": "Its customers book and pay the deposit from the same page, and the confirmation reaches them by email without anyone sending it by hand.",
+          "imageAlt": "Home page of CozuTours, snorkeling tours in Cozumel"
         },
         "faq": [
           {
@@ -303,7 +305,8 @@
             "q": "How much does it cost?",
             "a": "It depends on the scope. We don't use fixed prices because every business takes bookings differently: you tell us how you work and we give you a clear proposal."
           }
-        ]
+        ],
+        "heroAlt": "Blue Reef Divers site, with bookings and departures, shown on a phone"
       },
       "automatizaciones": {
         "name": "automation",
@@ -340,9 +343,9 @@
           }
         ],
         "case": {
-          "client": "our own studio",
-          "built": "An assistant in our site's chat that answers visitors, and an immediate alert whenever someone leaves us their details.",
-          "today": "People who write to us get a reply right away, and no contact gets lost among messages."
+          "built": "A guide to Cozumel businesses and tours with a chat assistant that answers travelers using the real catalog of each destination, automatic translation of provider listings, and automatic emails during each business's verification.",
+          "today": "Travelers find what to do by asking in the chat, and providers publish their listing in two languages without translating it by hand.",
+          "imageAlt": "TourBrain, a guide to Cozumel businesses and tours, shown on a phone"
         },
         "faq": [
           {
@@ -369,7 +372,8 @@
             "q": "Do you work with businesses outside Cozumel?",
             "a": "Yes. We are based in Cozumel, but we work remotely with businesses across Mexico."
           }
-        ]
+        ],
+        "heroAlt": "TourBrain, a guide to Cozumel businesses and tours with a chat assistant, shown on a phone"
       }
     }
   }

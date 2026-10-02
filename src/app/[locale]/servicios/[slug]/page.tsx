@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { buttonVariants } from "@/components/ui/button";
 import { OpenChatButton } from "@/components/open-chat-button";
 import { WhatsAppLink } from "@/components/whatsapp-link";
 import { GridBackground } from "@/components/grid-background";
-import { TerminalWindow } from "@/components/terminal-window";
 import { SITE_URL } from "@/lib/site";
-import { SERVICIOS, esServicio } from "@/lib/servicios";
+import { SERVICIOS, VISUALES, esServicio } from "@/lib/servicios";
 
 type Params = { locale: string; slug: string };
 type Item = { title: string; body: string };
@@ -125,6 +125,9 @@ export default async function ServicioPage({
     },
   ];
 
+  const visual = VISUALES[slug];
+  const caso = visual.caso;
+  const hero = visual.hero;
   const textoWhatsApp = t("common.whatsappText", { servicio: nombre });
 
   return (
@@ -137,51 +140,90 @@ export default async function ServicioPage({
       {/* Hero */}
       <section className="relative overflow-hidden">
         <GridBackground />
-        <div className="relative mx-auto max-w-4xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
-          <nav
-            aria-label="breadcrumb"
-            className="mb-8 flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground"
-          >
-            <Link href="/" className="transition-colors hover:text-terminal-green">
-              {t("common.breadcrumbHome")}
-            </Link>
-            <span aria-hidden>/</span>
-            <Link href="/#servicios" className="transition-colors hover:text-terminal-green">
-              {t("common.breadcrumbServices")}
-            </Link>
-            <span aria-hidden>/</span>
-            <span className="text-foreground/80">{nombre}</span>
-          </nav>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
+          <div>
+            <nav
+              aria-label="breadcrumb"
+              className="mb-8 flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground"
+            >
+              <Link href="/" className="transition-colors hover:text-terminal-green">
+                {t("common.breadcrumbHome")}
+              </Link>
+              <span aria-hidden>/</span>
+              <Link href="/#servicios" className="transition-colors hover:text-terminal-green">
+                {t("common.breadcrumbServices")}
+              </Link>
+              <span aria-hidden>/</span>
+              <span className="text-foreground/80">{nombre}</span>
+            </nav>
 
-          <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
-            {`// ${t("common.eyebrow")}`}
-          </p>
-          <h1 className="text-3xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-5xl">
-            {t(`items.${slug}.h1`)}
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            {t(`items.${slug}.lead`)}
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <OpenChatButton
-              size="lg"
-              className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
-            >
-              {t("common.ctaChat")}
-            </OpenChatButton>
-            <WhatsAppLink
-              zona={`servicio_${slug}_hero`}
-              texto={textoWhatsApp}
-              className={buttonVariants({
-                size: "lg",
-                variant: "outline",
-                className:
-                  "border-border font-mono text-foreground hover:border-terminal-cyan/50 hover:text-terminal-cyan",
-              })}
-            >
-              {t("common.ctaWhatsapp")}
-            </WhatsAppLink>
+            <p className="mb-5 font-mono text-xs tracking-widest text-terminal-green/80">
+              {`// ${t("common.eyebrow")}`}
+            </p>
+            <h1 className="text-3xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-5xl">
+              {t(`items.${slug}.h1`)}
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {t(`items.${slug}.lead`)}
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <OpenChatButton
+                size="lg"
+                className="bg-terminal-green font-mono text-background hover:bg-terminal-green/90"
+              >
+                {t("common.ctaChat")}
+              </OpenChatButton>
+              <WhatsAppLink
+                zona={`servicio_${slug}_hero`}
+                texto={textoWhatsApp}
+                className={buttonVariants({
+                  size: "lg",
+                  variant: "outline",
+                  className:
+                    "border-border font-mono text-foreground hover:border-terminal-cyan/50 hover:text-terminal-cyan",
+                })}
+              >
+                {t("common.ctaWhatsapp")}
+              </WhatsAppLink>
+            </div>
           </div>
+
+          <figure className="relative mx-auto w-full max-w-xl lg:max-w-none">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.14),transparent_65%)]"
+            />
+            {hero.tipo === "tarjeta" ? (
+              <Image
+                src={hero.src}
+                width={hero.ancho}
+                height={hero.alto}
+                alt={t(`items.${slug}.heroAlt`)}
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="w-full rounded-xl border border-terminal-green/25 shadow-[0_0_60px_-20px_rgba(0,255,157,0.45)]"
+              />
+            ) : (
+              <Image
+                src={hero.src}
+                width={hero.ancho}
+                height={hero.alto}
+                alt={t(`items.${slug}.heroAlt`)}
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className={
+                  hero.tipo === "celular"
+                    ? "mx-auto h-auto w-[62%] max-w-[300px] drop-shadow-[0_20px_50px_rgba(0,255,157,0.18)] lg:w-[58%]"
+                    : "h-auto w-full drop-shadow-[0_20px_50px_rgba(0,255,157,0.12)]"
+                }
+              />
+            )}
+            {hero.pie && (
+              <figcaption className="mt-3 text-center font-mono text-xs text-muted-foreground">
+                {`↳ ${hero.pie}`}
+              </figcaption>
+            )}
+          </figure>
         </div>
       </section>
 
@@ -239,35 +281,83 @@ export default async function ServicioPage({
         </div>
       </section>
 
-      {/* Un caso */}
+      {/* Un proyecto real */}
       <section>
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <p className="mb-2 font-mono text-xs tracking-widest text-muted-foreground">
             {`// ${t("common.caseEyebrow")}`}
           </p>
-          <h2 className="mb-8 text-2xl font-medium text-foreground sm:text-3xl">
-            {t(`items.${slug}.case.client`)}
-          </h2>
-          <TerminalWindow title={`~/casos/${slug}`}>
-            <div className="space-y-6">
-              <div>
-                <p className="mb-1.5 text-xs text-terminal-green">
-                  {`$ ${t("common.caseBuilt")}`}
-                </p>
-                <p className="font-sans text-sm leading-relaxed text-foreground/85 sm:text-base">
-                  {t(`items.${slug}.case.built`)}
-                </p>
+          <div
+            className={
+              caso.captura
+                ? "grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-12"
+                : "max-w-3xl"
+            }
+          >
+            {caso.captura && (
+              <a
+                href={caso.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block overflow-hidden rounded-lg border border-border bg-card/80 glow-border transition-colors hover:border-terminal-green/50 lg:order-2"
+              >
+                <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]/70" />
+                  <span className="ml-2 truncate font-mono text-xs text-muted-foreground">
+                    {caso.dominio}
+                  </span>
+                </div>
+                <Image
+                  src={caso.captura.src}
+                  width={caso.captura.ancho}
+                  height={caso.captura.alto}
+                  alt={t(`items.${slug}.case.imageAlt`)}
+                  sizes="(min-width: 1024px) 640px, 100vw"
+                  className="h-auto w-full"
+                />
+              </a>
+            )}
+
+            <div className="lg:order-1">
+              <h2 className="mb-6 text-2xl font-medium text-foreground sm:text-3xl">
+                {caso.nombre}
+              </h2>
+              <div className="space-y-5">
+                <div>
+                  <p className="mb-1.5 font-mono text-xs text-terminal-green">
+                    {`$ ${t("common.caseBuilt")}`}
+                  </p>
+                  <p className="text-sm leading-relaxed text-foreground/85 sm:text-base">
+                    {t(`items.${slug}.case.built`)}
+                  </p>
+                </div>
+                <div>
+                  <p className="mb-1.5 font-mono text-xs text-terminal-cyan">
+                    {`$ ${t("common.caseToday")}`}
+                  </p>
+                  <p className="text-sm leading-relaxed text-foreground/85 sm:text-base">
+                    {t(`items.${slug}.case.today`)}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="mb-1.5 text-xs text-terminal-cyan">
-                  {`$ ${t("common.caseToday")}`}
-                </p>
-                <p className="font-sans text-sm leading-relaxed text-foreground/85 sm:text-base">
-                  {t(`items.${slug}.case.today`)}
-                </p>
-              </div>
+              <a
+                href={caso.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({
+                  size: "lg",
+                  variant: "outline",
+                  className:
+                    "mt-7 border-terminal-green/40 font-mono text-terminal-green hover:bg-terminal-green/10",
+                })}
+              >
+                {t("common.caseVisit")}
+                <ExternalLink className="size-4" />
+              </a>
             </div>
-          </TerminalWindow>
+          </div>
         </div>
       </section>
 
