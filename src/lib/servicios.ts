@@ -13,7 +13,7 @@ type Visual = {
   // Imagen del encabezado. "montaje" y "celular" flotan sobre el fondo (PNG con
   // transparencia); "tarjeta" lleva su propio fondo.
   hero: Imagen & { tipo: "montaje" | "celular" | "tarjeta"; pie?: string };
-  caso: { nombre: string; url: string; dominio: string; captura?: Imagen };
+  caso: { nombre: string; url: string; dominio: string; captura?: Imagen & { cartel?: boolean } };
 };
 
 // Los nombres de proyecto son los que ya se publican en el portafolio del inicio.
@@ -38,6 +38,6 @@ export const VISUALES: Record<ServicioSlug, Visual> = {
   },
   automatizaciones: {
     hero: { src: "/servicios/tourbrain-celular.webp", ancho: 738, alto: 1355, tipo: "celular", pie: "TourBrain" },
-    caso: { nombre: "TourBrain", url: "https://www.tourbrain.online", dominio: "tourbrain.online" },
+    caso: { nombre: "TourBrain", url: "https://www.tourbrain.online", dominio: "tourbrain.online", captura: { src: "/servicios/tourbrain-cartel.webp", ancho: 1086, alto: 1448, cartel: true } },
   },
 };

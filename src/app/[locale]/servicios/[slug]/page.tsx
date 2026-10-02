@@ -290,7 +290,7 @@ export default async function ServicioPage({
           <div
             className={
               caso.captura
-                ? "grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-12"
+                ? "grid items-center gap-10 lg:gap-12 " + (caso.captura.cartel ? "lg:grid-cols-[1fr_340px]" : "lg:grid-cols-[1.2fr_1fr]")
                 : "max-w-3xl"
             }
           >
@@ -299,8 +299,12 @@ export default async function ServicioPage({
                 href={caso.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block overflow-hidden rounded-lg border border-border bg-card/80 glow-border transition-colors hover:border-terminal-green/50 lg:order-2"
+                className={
+                  "group block overflow-hidden rounded-lg border border-border bg-card/80 glow-border transition-colors hover:border-terminal-green/50 lg:order-2" +
+                  (caso.captura.cartel ? " mx-auto w-full max-w-[340px]" : "")
+                }
               >
+                {!caso.captura.cartel && (
                 <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
@@ -309,12 +313,13 @@ export default async function ServicioPage({
                     {caso.dominio}
                   </span>
                 </div>
+                )}
                 <Image
                   src={caso.captura.src}
                   width={caso.captura.ancho}
                   height={caso.captura.alto}
                   alt={t(`items.${slug}.case.imageAlt`)}
-                  sizes="(min-width: 1024px) 640px, 100vw"
+                  sizes={caso.captura.cartel ? "340px" : "(min-width: 1024px) 640px, 100vw"}
                   className="h-auto w-full"
                 />
               </a>
