@@ -12,5 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE_URL, lastModified: now, changeFrequency: "monthly", priority: 1, alternates },
     { url: `${SITE_URL}/en`, lastModified: now, changeFrequency: "monthly", priority: 1, alternates },
+    { url: `${SITE_URL}/paginas-web-cozumel`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

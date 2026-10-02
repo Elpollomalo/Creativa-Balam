@@ -10,6 +10,7 @@ import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { ChatWidget } from "@/components/chat-widget";
 import { Particles } from "@/components/particles";
+import { SiteChrome } from "@/components/site-chrome";
 import { SITE_URL, REDES_SOCIALES } from "@/lib/site";
 import "../globals.css";
 
@@ -145,11 +146,15 @@ export default async function LocaleLayout({
           `}
         </Script>
         <NextIntlClientProvider messages={messages}>
-          <Particles count={44} />
-          <Navbar />
+          <SiteChrome>
+            <Particles count={44} />
+            <Navbar />
+          </SiteChrome>
           <main className="flex-1 flex flex-col">{children}</main>
-          <SiteFooter />
-          <ChatWidget />
+          <SiteChrome>
+            <SiteFooter />
+            <ChatWidget />
+          </SiteChrome>
         </NextIntlClientProvider>
       </body>
     </html>
