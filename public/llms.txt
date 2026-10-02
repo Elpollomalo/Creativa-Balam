@@ -1,15 +1,22 @@
 # Creativa Balam — estudio independiente de software
 
-Creativa Balam es un estudio independiente de software con sede en Cozumel, Quintana Roo, México. Diseña y desarrolla aplicaciones y plataformas para empresas.
+> Creativa Balam es un estudio independiente de software con sede en Cozumel, Quintana Roo, México. Diseña y desarrolla software a medida, páginas web con sistema de reservas y automatizaciones para empresas.
 
-## Qué hace
+No debe confundirse con otras empresas o proyectos que usen el nombre "Balam".
 
-- Landing pages y sitios web
-- Sistemas de reservas
-- Plataformas y herramientas internas
-- SEO y publicidad digital
-- Automatizaciones e integraciones entre plataformas y canales de IA
-- Stack principal: Next.js, TypeScript, Tailwind CSS, Supabase, pagos (Stripe, PayPal), automatización con IA (n8n, Dify), bots y Web3
+## Servicios
+
+- [Software a medida](https://www.creativabalam.com.mx/servicios/software-a-medida): plataformas, paneles de administración y herramientas internas hechas para la forma de trabajar de cada empresa.
+- [Páginas web con sistema de reservas](https://www.creativabalam.com.mx/servicios/sistemas-de-reservas): el cliente reserva y paga su depósito en línea, a cualquier hora, con correos de confirmación y panel para administrar.
+- [Automatizaciones](https://www.creativabalam.com.mx/servicios/automatizaciones): avisos, seguimiento de clientes, atención automática y conexión entre las plataformas que la empresa ya usa.
+
+También ofrece landing pages y sitios web, SEO y publicidad digital.
+
+## Services (English)
+
+- [Custom software](https://www.creativabalam.com.mx/en/servicios/software-a-medida): platforms, admin panels and internal tools built around how each business works.
+- [Websites with online booking](https://www.creativabalam.com.mx/en/servicios/sistemas-de-reservas): customers book and pay a deposit online at any hour, with confirmation emails and an admin panel.
+- [Automation](https://www.creativabalam.com.mx/en/servicios/automatizaciones): alerts, customer follow-up, automatic replies and connections between the platforms a business already uses.
 
 ## Principios
 
@@ -21,12 +28,13 @@ Creativa Balam es un estudio independiente de software con sede en Cozumel, Quin
 
 - Sitio: https://www.creativabalam.com.mx
 - Correo: hola@creativabalam.com.mx
-- Teléfono: +52 987 112 3961
+- Teléfono y WhatsApp: +52 987 112 3961
 - Ubicación: Cozumel, Quintana Roo, México
 
-## URLs principales
+## Otras URLs
 
 - https://www.creativabalam.com.mx — inicio (español, por defecto)
 - https://www.creativabalam.com.mx/en — inicio en inglés
-- https://www.creativabalam.com.mx/#portafolio — portafolio de productos (español)
-- https://www.creativabalam.com.mx/en#portafolio — portafolio de productos (inglés)
+- https://www.creativabalam.com.mx/#portafolio — portafolio (español)
+- https://www.creativabalam.com.mx/en#portafolio — portafolio (inglés)
+- https://www.creativabalam.com.mx/sitemap.xml — mapa del sitio
