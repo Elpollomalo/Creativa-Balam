@@ -10,6 +10,7 @@ import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { ChatWidget } from "@/components/chat-widget";
 import { Particles } from "@/components/particles";
+import { SITE_URL, REDES_SOCIALES } from "@/lib/site";
 import "../globals.css";
 
 const inter = Inter({
@@ -55,8 +56,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
+    metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
+    alternates: {
+      canonical: locale === "es" ? "/" : `/${locale}`,
+      languages: { es: "/", en: "/en", "x-default": "/" },
+    },
   };
 }
 
@@ -91,8 +97,9 @@ export default async function LocaleLayout({
                 "@type": "Organization",
                 name: "Creativa Balam",
                 alternateName: "Balam",
-                url: "https://creativabalam.com.mx",
-                logo: "https://creativabalam.com.mx/icon.svg",
+                url: SITE_URL,
+                logo: `${SITE_URL}/icon.svg`,
+                sameAs: REDES_SOCIALES,
                 contactPoint: {
                   "@type": "ContactPoint",
                   telephone: "+52-987-112-3961",
@@ -114,7 +121,7 @@ export default async function LocaleLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 name: "Creativa Balam",
-                url: "https://creativabalam.com.mx",
+                url: SITE_URL,
                 inLanguage: ["es", "en"],
                 publisher: {
                   "@type": "Organization",
